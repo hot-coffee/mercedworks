@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#button-container {
+  margin: auto;
+  width: auto;
+  text-align: center;
+}
+
+#login-button {
+  background-color: midnightblue;
+  color: white;
+  border: 0;
+  font-size: 20px;
+
+}
+
+#got-token-text {
+  color: midnightblue;
+  font-size: 20px;
+}
+
+
