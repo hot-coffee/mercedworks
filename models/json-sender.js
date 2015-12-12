@@ -1,50 +1,29 @@
 'use strict';
 
+var logger = require('gruew-logger');
+var requestJson = require('request-json');
+
 function JsonSender(serverOptions, payload) {
     this.payload = payload;
-    this.options = {
-        host: serverOptions.host,
-        port: serverOptions.port,
-        path: serverOptions.path,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': Buffer.byteLength(payload)
-        }
-    };
+    this.serverOptions = serverOptions;
 
     /**
      *
      * @param callback - args error, data
      */
     this.send = function (callback) {
-        var req = http.request(this.options, function(res) {
-            res.setEncoding('utf8');
-            var data = '';
-            res.on('data', function (chunk) {
-                console.log('Response: ' + chunk);
-                data += chunk;
-            }.bind(this));
-            
-            res.on('error', function (error) {
-                console.log('Error failed to post data to:', this.options.host);
-                callback(error, null);
-            }.bind(this));
-            
-            res.on('finished', function () {
-                console.log('Fished fetching data:', data.toString());
-                callback(data, null);
-            }.bind(this));
+        var client = requestJson.createClient(this.serverOptions.hostAndPort());
+        client.post(this.serverOptions.path, this.payload, function(err, res, body) {
+            if (err) {
+                logger(['posting to:', this.serverOptions.uri()], __filename, true, false);
+                return;
+            }
 
-            res.on('close', function () {
-                console.log('Closed the connection to:', this.options.host);
-                callback(null, null);
-            }.bind(this));
-        });
-
-        // post the data
-        req.write(JSON.stringify(this.payload));
-        req.end();
+            logger(['response from', this.serverOptions.uri(), 'is:', body], __filename, false, false);
+            if (callback) {
+                callback(err, body);
+            }
+        }.bind(this));
     };
 }
 
