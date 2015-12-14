@@ -29,7 +29,8 @@ function GotToken() {
         }
         
         var payload = {
-            instagramKey: this.instagramKey
+            key: this.instagramKey,
+            redirectUri: 'http://localhost:3333/got-token'
         };
 
         var self = this;

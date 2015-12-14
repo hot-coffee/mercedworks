@@ -1,29 +1,30 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 #button-container {
-  margin: auto;
-  width: auto;
-  text-align: center;
+    margin: auto;
+    width: auto;
+    text-align: center;
 }
 
 #login-button {
-  background-color: midnightblue;
-  color: white;
-  border: 0;
-  font-size: 20px;
-
+    background-color: slategrey;
+    color: white;
+    border: 0;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 2px;
 }
 
 #got-token-text {
-  color: midnightblue;
-  font-size: 20px;
+    color: slategray;
+    font-size: 20px;
 }
 
 

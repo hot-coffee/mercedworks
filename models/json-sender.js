@@ -15,11 +15,11 @@ function JsonSender(serverOptions, payload) {
         var client = requestJson.createClient(this.serverOptions.hostAndPort());
         client.post(this.serverOptions.path, this.payload, function(err, res, body) {
             if (err) {
-                logger(['posting to:', this.serverOptions.uri()], __filename, true, false);
+                logger.log(['posting to:', this.serverOptions.uri()], __filename, true);
                 return;
             }
 
-            logger(['response from', this.serverOptions.uri(), 'is:', body], __filename, false, false);
+            logger.log(['response from', this.serverOptions.uri(), 'is:', body], __filename, false);
             if (callback) {
                 callback(err, body);
             }

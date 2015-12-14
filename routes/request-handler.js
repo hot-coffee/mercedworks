@@ -7,7 +7,7 @@ var logger = require('gruew-logger');
 
 function RequestHandler() {
     this.index = function (req, res, next) {
-        res.render('index', {title: 'Express'});
+        res.render('index', {title: 'Merced Works'});
     };
 
     this.gotToken = function (req, res, next) {
@@ -18,12 +18,12 @@ function RequestHandler() {
         var payload = req.body;
         var response = null;
         var error = null;
-        if (payload.instagramKey) {
-            logger(['the key is:', payload.instagramKey], __filename, false, false);
-            response = 'got the key';
+        if (payload) {
+            logger.log(['the payload is:', payload], __filename, false);
+            response = 'got the payload';
         } else {
-            logger(['no insta key in payload'], __filename, true, false);
-            error = 'could not get the key';
+            logger.log(['no payload'], __filename, true);
+            error = 'could not get the payload';
         }
 
         jsonResponse(res, error, response);
@@ -32,19 +32,17 @@ function RequestHandler() {
             var jsonSender = new JsonSender(serverOptions.instagram, payload);
             jsonSender.send(function (error, data) {
                 if (error) {
-                    logger(
+                    logger.log(
                         ['Error failed to send token to server with error', error],
                         __filename,
-                        true,
-                        false
+                        true
                     );
                     return;
                 }
 
-                logger(
+                logger.log(
                     ['sent payload:', payload, 'received response:', data],
                     __filename,
-                    false,
                     false
                 );
             });
