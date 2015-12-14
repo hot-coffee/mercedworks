@@ -1,9 +1,9 @@
 function GotToken() {
+    this.$tokenText = $('#got-token-text');
+    this.uriKey = 'code';
+    this.instagramKey = null;
+    
     this.getCode = function () {
-        this.$tokenText = $('#got-token-text');
-        this.uriKey = 'code';
-        this.instagramKey = null;
-
         var currentUri = window.location.search;
         if (!currentUri) {
             console.log('No uri to find the key in...shucks');
