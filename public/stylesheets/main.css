@@ -1,0 +1,174 @@
+#banner {
+    background: url('../images/mwbanner.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+#banner #banner_info {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}
+#banner #banner_info #icon_container {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: -10px;
+}
+#banner #banner_info #icon_container .icon {
+    margin: 0 5px;
+}
+#banner #banner_info .arrow {
+    margin-top: 20px;
+    height: 45px;
+    width: 45px;
+}
+#banner #banner_info #logo {
+    height: 200px;
+    width: 180px;
+}
+#banner #banner_info h3 {
+    color: #FFFFFF;
+    width: 50%;
+    display: block;
+    margin: 25px auto;
+}
+#pic_container {
+    background: rgba(52, 61, 68, 0.6);
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+#pic_container #pic_holder #pic_rows {
+    display: inline-block;
+}
+#pic_container #pic_holder #pic_rows .portrait {
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+    cursor: pointer;
+}
+#pic_container #pic_holder #pic_rows h2,
+#pic_container #pic_holder #pic_rows h3 {
+    margin: 0;
+    padding: 0;
+}
+@media only screen and (max-width: 550px) {
+    #banner #banner_info h3 {
+        width: 70%;
+    }
+    #banner_blurry #profile_container a {
+        position: absolute;
+    }
+    #banner_blurry #profile_container .row .col-md-6 .profile_logo {
+        display: none;
+    }
+    #banner_blurry #profile_container .row .col-md-6 h4 {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 998px) {
+    #banner_blurry #profile_container .row .col-md-6 .profile_logo {
+        display: none;
+    }
+    #banner_blurry #profile_container .row .col-md-6 h4 {
+        width: 90%;
+    }
+}
+#banner_blurry {
+    background: url('../images/mwbanner.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+#banner_blurry #profile_container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    height: 600px;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    color: #FFFFFF;
+}
+#banner_blurry #profile_container #back {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#banner_blurry #profile_container .row {
+    text-align: center;
+}
+#banner_blurry #profile_container .row .col-md-6 {
+    top: 10px;
+}
+#banner_blurry #profile_container .row .col-md-6 .profile_logo {
+    margin: 5px;
+    height: 170px;
+    width: 150px;
+}
+#banner_blurry #profile_container .row .col-md-6 h1 {
+    margin: 30px;
+}
+#banner_blurry #profile_container .row .col-md-6 h4 {
+    width: 90%;
+    margin: 10px auto;
+}
+.up_container {
+    background: url('../images/mwbanner.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+.up_container #button_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}
+.up_container #button_container #update {
+    background: #27ae60;
+    border: none;
+    height: 50px;
+    width: 150px;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.up_container #button_container #update:active {
+    outline: none;
+}
+
+#button-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width: auto;
+    text-align: center;
+}
+
+#instagram-login-button {
+    background-color: slategrey;
+    color: white;
+    border: 0;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+#got-token-text {
+    color: slategray;
+    font-size: 20px;
+}

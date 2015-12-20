@@ -2,7 +2,7 @@ function GotToken() {
     this.$tokenText = $('#got-token-text');
     this.uriKey = 'code';
     this.instagramKey = null;
-    
+
     this.getCode = function () {
         var currentUri = window.location.search;
         if (!currentUri) {
@@ -60,7 +60,7 @@ function GotToken() {
     };
 
     this.showError = function (errorMessage) {
-        this.$tokenText.text('Failed to get the token. Here is the Error: ' + errorMessage);
+        this.$tokenText.text('Failed to get the token. Here is the Error: ' + str(errorMessage));
     };
 
     this.showSuccess = function () {

@@ -1,71 +1,121 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
+var morganLogger = require('morgan');
+var logger = require('gruew-logger');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var gotToken = require('./routes/got-token');
-
+var cors = require('cors');
+var debug = require('debug')('cappuccino:server');
 var RequestHandler = require('./routes/request-handler');
+var config = require('./utils/config');
+var InstagramController = require('./controllers/instagram-controller');
 
-var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+function App() {
+    this.run = function () {
+        if (process.argv.length > 2 && process.argv[2] === 'fetchmedia') {
+            var igController = new InstagramController();
+            igController.fetchRecentMedia(function (error, media) {
+                if (error) {
+                    logger.log(['Failed to fetch media with error:', error], __filename, true);
+                    return;
+                }
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+                logger.log(['Got media:', media], __filename, false);
+            });
+        } else {
+            this.startServer();
+        }
+    };
 
-//app.use('/', routes);
-//app.use('/users', users);
-//app.use('/got-token', gotToken);
+    this.startServer = function() {
+        var app = express();
 
-var requestHandler = new RequestHandler();
+        // view engine setup
+        app.set('views', path.join(__dirname, 'views'));
+        app.set('view engine', 'jade');
 
-app.get('/', requestHandler.index);
-app.get('/got-token', requestHandler.gotToken);
+        // uncomment after placing your favicon in /public
+        //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+        app.use(morganLogger('dev'));
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(cookieParser());
+        app.use(express.static('public'));
+        app.use(cors());
 
-app.post('/save-token', requestHandler.saveToken);
+        // catch 404 and forward to error handler
+        //app.use(function(req, res, next) {
+        //    var err = new Error('Not Found');
+        //    err.status = 404;
+        //    next(err);
+        //});
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+        // error handlers
 
-// error handlers
+        // development error handler
+        // will print stacktrace
+        if (app.get('env') === 'development') {
+            app.use(function(err, req, res, next) {
+                res.status(err.status || 500);
+                res.render('error', {
+                    message: err.message,
+                    error: err
+                });
+            });
+        }
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
+        // production error handler
+        // no stacktraces leaked to user
+        app.use(function(err, req, res, next) {
+            res.status(err.status || 500);
+            res.render('error', {
+                message: err.message,
+                error: {}
+            });
         });
-    });
+
+        var requestHandler = new RequestHandler();
+        app.get('/', requestHandler.index.bind(requestHandler));
+        app.get('/got-instagram-token', requestHandler.index.bind(requestHandler));
+        app.get('/all-profiles', requestHandler.allProfiles.bind(requestHandler));
+
+        var port = config.port;
+        var server = app.listen(port, function () {
+            logger.log(
+                ['cappuccino server running on port:', port],
+                __filename,
+                false
+            );
+        });
+
+        server.on('error', this.onError);
+    };
+
+    this.onError = function(error) {
+        if (error.syscall !== 'listen') {
+            throw error;
+        }
+
+        var bind = typeof port === 'string'
+            ? 'Pipe ' + port
+            : 'Port ' + port;
+
+        // handle specific listen errors with friendly messages
+        switch (error.code) {
+            case 'EACCES':
+                console.error(bind + ' requires elevated privileges');
+                process.exit(1);
+                break;
+            case 'EADDRINUSE':
+                console.error(bind + ' is already in use');
+                process.exit(1);
+                break;
+            default:
+                throw error;
+        }
+    };
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
-
-module.exports = app;
+module.exports = App;

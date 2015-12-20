@@ -3,11 +3,11 @@
 
 function InstagramController() {
     this.$button = $("#login-button");
-    this.instagramRediredUri = '';
     this.clientId = '4265370676f743eabb781e15f2228ed5';
     this.redirectUri = 'http://localhost:3333/got-token';
 
     this.init = function () {
+        console.log('hello from instagram controller');
         this.$button.on('click', this.buttonPressed.bind(this));
     };
 
@@ -23,5 +23,6 @@ function InstagramController() {
     };
 }
 
-var ic = new InstagramController();
-ic.init();
+console.log('in instagram controller');
+var instagramController = new InstagramController();
+instagramController.init();

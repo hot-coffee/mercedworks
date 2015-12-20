@@ -1,0 +1,190 @@
+//COLOR CODINGS
+@white: #FFFFFF;
+@mblue: rgba(52,61,68,.6);
+
+
+#banner{
+	background: url('../imgs/mwbanner.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+		#banner_info{
+			//border: 2px solid white; //DEV PURPOSES ONLY
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			-webkit-transform: translate(-50%,-50%);
+			-moz-transform: translate(-50%,-50%);
+			#icon_container{
+				//border: 2px solid white; //DEV PURPOSES ONLY
+				width: 60%;
+				margin: 0 auto;
+				margin-top: -10px;
+				.icon{
+					margin: 0 5px;
+				}
+			}
+			.arrow{
+				margin-top: 20px;
+				height: 45px;
+				width: 45px;
+			}
+			#logo{
+				height: 200px;
+				width: 180px;
+			}
+			h3{
+				color: @white;
+				width: 50%;
+				display: block;
+				margin: 25px auto;
+			}
+		}
+}
+
+#pic_container{
+	background: @mblue;
+	padding: 20px;
+	text-align: center;
+	color: @white;
+	#pic_holder{
+		#pic_rows{
+			display: inline-block;
+			.portrait{
+				height: 300px;
+				width: 300px;
+				margin: 10px;
+				cursor: pointer;		
+			}
+			h2,h3{
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 550px){
+	#banner{
+		#banner_info{
+			h3{
+				width: 70%;
+			}
+		}
+	}
+
+	#banner_blurry{
+		#profile_container{
+			a{
+				position: absolute;
+			}
+			.row{
+				.col-md-6{
+					.profile_logo{
+						display: none;
+					}
+					h4{
+						width: 90%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 998px){
+
+	#banner_blurry{
+		#profile_container{
+			.row{
+				.col-md-6{
+					.profile_logo{
+						display: none;
+					}
+					h4{
+						width: 90%;
+					}
+				}
+			}
+		}
+	}
+}
+
+//PROFILES STYLINGS
+#banner_blurry{
+	background: url('../imgs/mwbanner.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+	#profile_container{
+		background: rgba(0,0,0,.7);
+		padding: 30px;
+		height: 600px;
+		width: 80%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		color: @white;
+		#back{
+			color: white;
+			text-transform: uppercase;
+			font-weight: bold;
+			//border: 2px solid white;
+		}
+		.row{
+			text-align: center;
+			.col-md-6{
+				top: 10px;
+				.profile_logo{
+					margin: 5px;
+					height: 170px;
+					width: 150px;
+				}
+				h1{
+					margin: 30px;
+				}
+				h4{
+					width: 90%;
+					margin: 10px auto;
+				}
+			}
+		}
+	}
+}
+
+//UPDATE SETTINGS
+.up_container{
+	background: url('../imgs/mwbanner.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+		#button_container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			-webkit-transform: translate(-50%,-50%);
+			-moz-transform: translate(-50%,-50%);
+			#update{
+				background: #27ae60;
+				border: none;
+				height: 50px;
+				width: 150px;
+				color: @white;
+				font-size: 20px;
+				border-radius: 10px;
+				&:active{
+					outline: none;
+				}
+			}
+		}
+}

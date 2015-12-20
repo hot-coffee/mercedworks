@@ -2,9 +2,8 @@
 
 
 module.exports = function(res, error, payload) {
-    var response = {};
-    response.error = error;
-    response.payload = {result: payload};
-
-    res.send(JSON.stringify(response));
+    res.send(JSON.stringify({
+        error: error,
+        payload: payload
+    }));
 };

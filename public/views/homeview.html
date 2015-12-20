@@ -1,0 +1,22 @@
+<div id = "banner">
+    <div id="banner_info">
+        <img src="http://localhost:3333/images/mwlogo.png" id = "logo">
+        <h3>Weekly handcrafted stories proving #MercedWorks</h3>
+        <div id="icon_container">
+            <a href="https://www.facebook.com/mercedworks/?fref=ts"><img src="http://localhost:3333/images/icons/facebook.png" class = "icon"></a>
+            <a href="https://www.instagram.com/mercedworks/"><img src="http://localhost:3333/images/icons/instagram.png" class = "icon"></a>
+            <a href="https://twitter.com/mercedworks"><img src="http://localhost:3333/images/icons/twitter.png" class = "icon"></a>
+        </div>
+        <img src="http://localhost:3333/images/icons/arrow.png" class="arrow floating">
+    </div>
+</div>
+
+<div id="pic_container" ng-controller="mainController">
+    <div id="pic_holder">
+        <div id="pic_rows" ng-repeat="profile in profiles">
+            <a href="#/profiles/{{profile._id}}"><img ng-src ="{{profile.pic}}" class="portrait"></a>
+            <h2 class="name">{{profile.firstName}} {{profile.lastName}}</h2>
+            <h3 class="job">{{profile.occupation}}</h3>
+        </div>
+    </div>
+</div>

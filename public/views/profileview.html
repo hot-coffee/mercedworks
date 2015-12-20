@@ -1,0 +1,16 @@
+<div id="banner_blurry">
+	<div id="profile_container" ng-controller="profileController">
+		<a id="back" href="#/" class="stretchLeft">< Back</a>
+		<div class="row">
+			<div class="col-md-6">
+				<img ng-src="{{profile.pic}}" class="portrait">
+			</div>
+			<div class="col-md-6">
+				<img src="http://localhost:3333/images/mwlogo.png" class="profile_logo">
+				<h1>{{profile.firstName}} {{profile.lastName}}</h1>
+				<h1>{{profile.occupation}} at {{profile.business}}</h1>
+				<h4>{{profile.text}}</h4>
+			</div>
+		</div>
+	</div>
+</div>
