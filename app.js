@@ -6,7 +6,7 @@ var logger = require('gruew-logger');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var debug = require('debug')('cappuccino:server');
+var debug = require('debug')('mercedworks:server');
 var RequestHandler = require('./routes/request-handler');
 var config = require('./utils/config');
 var InstagramController = require('./controllers/instagram-controller');
@@ -84,7 +84,7 @@ function App() {
         var port = config.port;
         var server = app.listen(port, function () {
             logger.log(
-                ['cappuccino server running on port:', port],
+                ['mercedworks server running on port:', port],
                 __filename,
                 false
             );
