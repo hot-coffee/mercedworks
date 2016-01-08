@@ -42,7 +42,8 @@ module.exports = {
             redirectUri: process.env.INSTAGRAM_REDIRECT_URI || 'http://localhost:3333/got-instagram-token',
             baseUri: 'api.instagram.com',
             accessTokenPath: '/oauth/access_token',
-            recentMediaPath: '/v1/users/self/media/recent'
+            recentMediaPath: '/v1/users/self/media/recent',
+            port: 443
         }
     }
 };

@@ -33,7 +33,6 @@ function InstagramController(code) {
             }
 
             if (this.accessData && this.accessToken) {
-
                 logger.log(['got access token', this.accessToken], __filename, false);
 
                 if (callback) {
@@ -57,7 +56,7 @@ function InstagramController(code) {
 
         var options = {
             host: config.apiInfo.instagram.baseUri,
-            port: 443,
+            port: config.apiInfo.instagram.port,
             path: config.apiInfo.instagram.accessTokenPath,
             method: 'POST',
             headers: {
@@ -107,17 +106,26 @@ function InstagramController(code) {
         }
 
         var params = {accessToken: this.accessToken, code: this.code};
+        var options = {flags: 'w'};
 
-        jsonFile.writeFile(config.filePaths.instagramParamsPath, params, function(error) {
-            if (error) {
-                logger.log(
-                    ['could not save instagram parms to file:', config.filePaths.instagramParamsPath],
-                    __filename,
-                    true
-                );
-                callback(new Error('Could not save to file'));
-                return;
-            }
+        jsonFile.writeFile(
+            config.filePaths.instagramParamsPath,
+            params,
+            options,
+            function(error) {
+                if (error) {
+                    logger.log(
+                        [
+                            'could not save instagram parms to file:',
+                            config.filePaths.instagramParamsPath
+                        ],
+                        __filename,
+                        true
+                    );
+
+                    callback(new Error('Could not save to file'));
+                    return;
+                }
 
             callback();
         }.bind(this));
@@ -180,7 +188,7 @@ function InstagramController(code) {
 
         var options = {
             host: config.apiInfo.instagram.baseUri,
-            port: 443,
+            port: config.apiInfo.instagram.port,
             path: config.apiInfo.instagram.recentMediaPath + this.constructUriPath(params),
             method: 'GET'
         };
