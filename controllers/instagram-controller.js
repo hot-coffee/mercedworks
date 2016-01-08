@@ -22,8 +22,7 @@ function InstagramController(code) {
         logger.log(['fetching access token with code:', code], __filename, false);
         async.series([
             this.getAccessToken.bind(this),
-            this.saveParams.bind(this),
-            this.fetchRecentMedia.bind(this)
+            this.saveParams.bind(this)
         ], function(error) {
             if (error) {
                 logger.log(['getting access token async:', error], __filename, true);
@@ -38,6 +37,17 @@ function InstagramController(code) {
 
                 if (callback) {
                     callback(true);
+
+                    logger.log(['Attemping to fetch recent media'], __filename, false);
+
+                    this.fetchRecentMedia(function (error, media) {
+                        if (error) {
+                            logger.log(['Failed to fetch media with error:', error], __filename, true);
+                            return;
+                        }
+
+                        logger.log(['Got media:', media], __filename, false);
+                    })
                 }
             } else if (callback) {
                 logger.log(['no access token in instagram data'], __filename, true);
