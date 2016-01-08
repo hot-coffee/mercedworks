@@ -27,7 +27,6 @@ app.config([
                     controller: 'instagramTokenController',
                     templateUrl: '../../views/got-instagram-token.html'
                 });
-
         }
     ]
 );
