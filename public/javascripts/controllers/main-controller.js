@@ -3,7 +3,6 @@ angular.module('mercedWorks').controller(
         '$scope',
         'profileFactory',
         function($scope, photoFactory) {
-
             photoFactory.getProfiles(function(error) {
                 if (error) {
                     // TODO UI to handle error

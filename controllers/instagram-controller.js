@@ -22,7 +22,8 @@ function InstagramController(code) {
         logger.log(['fetching access token with code:', code], __filename, false);
         async.series([
             this.getAccessToken.bind(this),
-            this.saveParams.bind(this)
+            this.saveParams.bind(this),
+            this.fetchRecentMedia.bind(this)
         ], function(error) {
             if (error) {
                 logger.log(['getting access token async:', error], __filename, true);
@@ -202,6 +203,7 @@ function InstagramController(code) {
                     __filename,
                     false
                 );
+
                 data += chunk;
             });
 
@@ -259,8 +261,7 @@ function InstagramController(code) {
         _.each(this.recentMedia, function(entry) {
             var shouldAdd = true;
             for (var i=0; i < this.dbMedia.length; i++) {
-                var dbEntry = this.dbMedia[i];
-                if (dbEntry.link === entry.link) {
+                if (this.dbMedia[i].link === entry.link) {
                     shouldAdd = false;
                     break;
                 }
