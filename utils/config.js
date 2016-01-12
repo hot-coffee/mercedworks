@@ -4,6 +4,10 @@ var path = require('path');
 
 var port = process.env.MERCED_WORKS_PORT || '3333';
 var appName = 'mercedworks';
+var mode = process.env.MERCED_WORKS_MODE ? process.env.MERCED_WORKS_MODE : 'production';
+var redirectUri = mode === 'production' ?
+    'ec2-54-200-241-144.us-west-2.compute.amazonaws.com/got-instagram-token' :
+    'http://localhost:3333/got-instagram-token';
 
 // TODO all params that can be moved to process.env should be moved
 
@@ -13,7 +17,7 @@ module.exports = {
     filePaths: {
         logFilePath: path.join('/var/log', appName),
         instagramParamsPath: path.join(__dirname, '../files/instagram-params.json'),
-        instagramProfileMapPath: path.join(__dirname, '../files/instagram-profile-map.json'),
+        instagramProfileMapPath: path.join(__dirname, '../files/instagram-profile-map.json')
     },
     columbianBeans: {
         database: 'mercedworks',
@@ -39,7 +43,7 @@ module.exports = {
         instagram: {
             clientId: process.env.INSTAGRAM_CLIENT_ID || '4265370676f743eabb781e15f2228ed5',
             clientSecret: process.env.INSTAGRAM_CLIENT_SECRET || 'f9cf460d3567413f81082a1af2f0aa8a',
-            redirectUri: process.env.INSTAGRAM_REDIRECT_URI || 'http://localhost:3333/got-instagram-token',
+            redirectUri: redirectUri,
             baseUri: 'api.instagram.com',
             accessTokenPath: '/oauth/access_token',
             recentMediaPath: '/v1/users/self/media/recent',
