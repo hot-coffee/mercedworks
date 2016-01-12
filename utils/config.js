@@ -4,11 +4,12 @@ var path = require('path');
 
 var port = process.env.MERCED_WORKS_PORT || '3333';
 var appName = 'mercedworks';
-var mode = process.env.MERCED_WORKS_MODE ? process.env.MERCED_WORKS_MODE : 'production';
+var mode = !!process.env.MERCED_WORKS_MODE ? process.env.MERCED_WORKS_MODE : 'production';
 var redirectUri = mode === 'production' ?
     'ec2-54-200-241-144.us-west-2.compute.amazonaws.com/got-instagram-token' :
     'http://localhost:3333/got-instagram-token';
-
+var columbianBeanHost = !!process.env.COLUMBIAN_BEAN_HOST ?
+    process.env.COLUMBIAN_BEAN_HOST : 'http://ec2-54-201-78-188.us-west-2.compute.amazonaws.com';
 // TODO all params that can be moved to process.env should be moved
 
 module.exports = {
@@ -21,8 +22,8 @@ module.exports = {
     },
     columbianBeans: {
         database: 'mercedworks',
-        host: 'http://localhost',
-        port: process.env.COLUMBIAN_BEANS_PORT || '9042',
+        host: columbianBeanHost,
+        port: process.env.COLUMBIAN_BEANS_PORT || '80',
         postPath: 'save-records/',
         getPath: 'all-records/',
         collections: {
