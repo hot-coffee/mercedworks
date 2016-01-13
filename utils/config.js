@@ -78,7 +78,6 @@ module.exports = {
                 'javascripts/controllers/profile-controller.js',
                 'javascripts/controllers/instagram-signin-controller.js',
                 'javascripts/controllers/instagram-token-controller.js',
-                'javascripts/factories/config-factory.js',
                 'javascripts/factories/profile-factory.js',
                 'javascripts/factories/instagram-factory.js'
             ],
