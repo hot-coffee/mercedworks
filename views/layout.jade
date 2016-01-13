@@ -1,9 +1,22 @@
 doctype html
 html
     head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
-        script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
-    body
-        block content
+        title=appName
+
+        // stylesheets
+        each styleSheet in styleSheets
+            link(rel='stylesheet', href=styleSheet)
+
+        // scripts
+        each libScript in libScripts
+            script(type='application/javascript', src=libScript)
+
+    body(ng-app=appName)
+        div(ng-view)
+            block content
+
+        each angularScript in angularScripts
+            script(type='application/javascript', src=angularScript)
+
+        each customScript in customScripts
+            script(type='application/javascript', src=customScript)

@@ -1,0 +1,10 @@
+
+div(id='banner_blurry')
+    div(id='profile_container', ng-controller='profileController')
+        a(id='back', href='#/', class='stretchLeft') < Back
+        div(class='row')
+            div(class='col-md-6')
+                img(src='images/mwlogo.png', class='portrait')
+                h1. {{profile.firstName + ' ' + profile.lastName}}
+                h1. {{profile.occupation + ' at ' + profile.business}}
+                h4. {{profile.text}}

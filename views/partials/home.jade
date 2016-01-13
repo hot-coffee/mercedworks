@@ -1,0 +1,22 @@
+div(ng-controller='mainController')
+    div(id='banner')
+        div(id='banner_info')
+            img(src='images/mwlogo.png', id='logo')
+            h3 Weekly handcrafted stories proving #MercedWorks
+            div(id='icon_container')
+                a(href='https://www.facebook.com/mercedworks/?fref=ts')
+                    img(src='images/icons/facebook.png', class='icon')
+                a(href='https://www.instagram.com/mercedworks/')
+                    img(src='images/icons/instagram.png', class='icon')
+                a(href='https://twitter.com/mercedworks')
+                    img(src='images/icons/twitter.png', class='icon')
+            a(href='pdown')
+                img(src='images/icons/arrow.png', class='arrow floating')
+    div(id='pic_container')
+        div(id='pic_holder')
+            h1. {{'profile lenth:' + profiles.length}}
+            div(id='pic_rows', ng-repeat='profile in profiles')
+                a(href='#/profiles/{{profile.id}}')
+                    img(ng-src='{{profile.pic}}', class='portrait')
+                h2(class='name'). {{profile.firstName + ' ' + profile.lastName}}
+                h3(class='job'). {{profile.occupation}}

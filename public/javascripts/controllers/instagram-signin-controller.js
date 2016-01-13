@@ -1,4 +1,4 @@
-angular.module('mercedWorks').controller(
+angular.module('MercedWorks').controller(
     'instagramSignInController', [
         '$scope',
         '$location',
