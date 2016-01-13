@@ -14,9 +14,9 @@ div(ng-controller='mainController')
                 img(src='images/icons/arrow.png', class='arrow floating')
     div(id='pic_container')
         div(id='pic_holder')
-            h1. {{'profile lenth:' + profiles.length}}
             div(id='pic_rows', ng-repeat='profile in profiles')
                 a(href='#/profiles/{{profile.id}}')
                     img(ng-src='{{profile.pic}}', class='portrait')
-                h2(class='name'). {{profile.firstName + ' ' + profile.lastName}}
-                h3(class='job'). {{profile.occupation}}
+                h2(class='name') {{profile.firstName + ' ' + profile.lastName}}
+                h3(class='job') {{profile.occupation}}
+                
