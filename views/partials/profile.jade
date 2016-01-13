@@ -4,7 +4,9 @@ div(id='banner_blurry')
         a(id='back', href='#/', class='stretchLeft') < Back
         div(class='row')
             div(class='col-md-6')
-                img(src='images/mwlogo.png', class='portrait')
-                h1. {{profile.firstName + ' ' + profile.lastName}}
-                h1. {{profile.occupation + ' at ' + profile.business}}
-                h4. {{profile.text}}
+                img(img ng-src="{{profile.pic}}" class="portrait")
+            div(class='col-md-6')
+                img(src='images/mwlogo.png', class='profile_logo')
+                h1 '{{profile.firstName + ' ' + profile.lastName}}'
+                h1 '{{profile.occupation + ' at ' + profile.business}}'
+                h4 '{{profile.text}}'   

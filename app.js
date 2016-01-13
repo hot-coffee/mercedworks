@@ -78,7 +78,6 @@ function App() {
 
         var requestHandler = new RequestHandler();
         app.get('/', requestHandler.index.bind(requestHandler));
-        //app.get('/index', requestHandler.index.bind(requestHandler));
         app.get('/partials/:name', requestHandler.partials.bind(requestHandler));
         //app.get('/got-instagram-token', requestHandler.index.bind(requestHandler));
         app.get('/all-profiles', requestHandler.allProfiles.bind(requestHandler));

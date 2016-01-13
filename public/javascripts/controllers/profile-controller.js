@@ -3,9 +3,7 @@ angular.module('MercedWorks').controller(
         '$scope',
         '$routeParams',
         'profileFactory',
-        'configFactory',
-        function($scope, $routeParams, profileFactory, configFactory) {
-            debugger;
+        function($scope, $routeParams, profileFactory) {
             var init = function() {
                 profileFactory.getProfiles(function(error) {
                     if (error) {
@@ -14,9 +12,6 @@ angular.module('MercedWorks').controller(
                     }
 
                     $scope.profile = profileFactory.profileForId($routeParams.profileId);
-                    $scope.resourcePath = function(inputPath) {
-                        return configFactory.makePath(inputPath);
-                    };
                 });
             };
 

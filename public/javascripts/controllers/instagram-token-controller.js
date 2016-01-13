@@ -3,14 +3,9 @@ angular.module('MercedWorks').controller(
         '$scope',
         '$location',
         '$routeParams',
-        'configFactory',
-        function($scope, $location, $routeParams, configFactory) {
+        function($scope, $location, $routeParams) {
             $scope.tokenText = 'Getting the Token';
             $scope.testText = JSON.stringify($routeParams);
-
-            $scope.resourcePath = function(inputPath) {
-                return configFactory.makePath(inputPath);
-            };
         }
     ]
 );

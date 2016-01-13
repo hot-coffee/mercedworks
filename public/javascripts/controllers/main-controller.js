@@ -2,16 +2,16 @@ angular.module('MercedWorks').controller(
     'mainController', [
         '$scope',
         'profileFactory',
-        function($scope, photoFactory) {
-            photoFactory.getProfiles(function(error) {
+        function($scope, profileFactory) {
+            profileFactory.getProfiles(function(error) {
                 if (error) {
                     // TODO UI to handle error
                     console.log('error fetching pics in main controller', error);
                     return;
                 }
 
-                console.log('fetched profiles:', photoFactory.profiles);
-                $scope.profiles = photoFactory.profiles;
+                console.log('fetched profiles:', profileFactory.profiles);
+                $scope.profiles = profileFactory.profiles;
             });
         }
     ]
