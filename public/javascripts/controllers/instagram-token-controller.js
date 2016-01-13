@@ -1,13 +1,16 @@
-angular.module('mercedWorks').controller(
+angular.module('MercedWorks').controller(
     'instagramTokenController', [
         '$scope',
         '$location',
         '$routeParams',
-        function($scope, $location, $routeParams) {
-            console.log('in instagram token controller');
+        'configFactory',
+        function($scope, $location, $routeParams, configFactory) {
             $scope.tokenText = 'Getting the Token';
-            console.log('route params:', $routeParams);
             $scope.testText = JSON.stringify($routeParams);
+
+            $scope.resourcePath = function(inputPath) {
+                return configFactory.makePath(inputPath);
+            };
         }
     ]
 );

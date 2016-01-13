@@ -1,4 +1,4 @@
-angular.module('mercedWorks').factory(
+angular.module('MercedWorks').factory(
     'instagramTokenFactory', [
         '$http',
         function($http) {

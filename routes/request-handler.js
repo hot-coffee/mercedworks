@@ -14,13 +14,32 @@ var jsonFile = require('jsonfile');
 function RequestHandler() {
     this.instagramProfileMap = jsonFile.readFileSync(config.filePaths.instagramProfileMapPath);
     this.index = function (req, res, next) {
+        logger.log(['In request handler index method'], __filename, false);
         var params = uriParamParser(req.originalUrl);
         if (!_.isEmpty(params)) {
             logger.log(['index params are:', params], __filename, false);
             this._saveToken(params);
         }
 
-        res.sendFile(path.join(__dirname, '../public/views/index.html'));
+        res.render('index', {
+            appName: config.client.appName,
+            libScripts: config.client.scripts.lib,
+            angularScripts: config.client.scripts.angular,
+            customScripts: config.client.scripts.custom,
+            styleSheets: config.client.styleSheets
+        });
+    };
+
+    this.partials = function(req, res, next) {
+        logger.log(['In request handler partial method'], __filename, false);
+        if (!_.has(req.params, 'name')) {
+            logger.log(['request does not have a partial param'], __filename, true);
+            res.render('error');
+            return;
+        }
+
+        logger.log(['page parameter:', req.params.name], __filename, false);
+        res.render('partials/' + req.params.name);
     };
 
     this._saveToken = function (params) {
