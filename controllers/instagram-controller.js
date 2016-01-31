@@ -125,8 +125,7 @@ function InstagramController(code) {
             options,
             function(error) {
                 if (error) {
-                    logger.log(
-                        [
+                    logger.log([
                             'could not save instagram parms to file:',
                             config.filePaths.instagramParamsPath
                         ],

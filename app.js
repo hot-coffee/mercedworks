@@ -79,8 +79,10 @@ function App() {
         var requestHandler = new RequestHandler();
         app.get('/', requestHandler.index.bind(requestHandler));
         app.get('/partials/:name', requestHandler.partials.bind(requestHandler));
-        //app.get('/got-instagram-token', requestHandler.index.bind(requestHandler));
-        app.get('/all-profiles', requestHandler.allProfiles.bind(requestHandler));
+        app.get('/got-instagram-token', requestHandler.index.bind(requestHandler));
+        app.get('/api/all-profiles', requestHandler.allProfiles.bind(requestHandler));
+        app.get('/api/instagram-redirect-url', requestHandler.instagramRedirectUrl.bind(requestHandler));
+        app.get('/fetch-instagram-media', requestHandler.fetchInstagramMedia.bind(requestHandler));
 
         var port = config.port;
         var server = app.listen(port, function () {

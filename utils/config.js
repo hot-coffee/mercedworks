@@ -17,8 +17,10 @@ var redirectUri,
     customClientScripts;
 
 if (mode === 'production') {
-    redirectUri = 'http://ec2-54-200-241-144.us-west-2.compute.amazonaws.com/got-instagram-token';
+    redirectUri = 'http://ec2-54-213-18-188.us-west-2.compute.amazonaws.com/got-instagram-token';
+    //redirectUri = 'http://10.0.1.4/got-instagram-token';
     columbianBeanHost = 'http://ec2-54-201-78-188.us-west-2.compute.amazonaws.com';
+    //columbianBeanHost = 'http://10.0.1.3';
     columbianBeanPort = '80';
     customClientScripts = [
         'javascripts/vendor/google-analytics.js'

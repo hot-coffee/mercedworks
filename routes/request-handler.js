@@ -94,6 +94,28 @@ function RequestHandler() {
             jsonResponse(res, error, responsePayload);
         }.bind(this));
     };
+
+    this.instagramRedirectUrl = function (req, res) {
+        var redirectUri = config.apiInfo.instagram.redirectUri;
+        logger.log(['getting instagram redirect uri:', redirectUri], __filename, false);
+        jsonResponse(res, null, {
+            redirectUri: redirectUri
+        });
+    };
+
+    this.fetchInstagramMedia = function (req, res) {
+        var igController = new InstagramController();
+        igController.fetchRecentMedia(function (error, media) {
+            if (error) {
+                logger.log(['Failed to fetch media with error:', error], __filename, true);
+                jsonResponse(res, error, null);
+                return;
+            }
+
+            logger.log(['Got media:', media], __filename, false);
+            jsonResponse(res, null, media);
+        });
+    };
 }
 
 module.exports = RequestHandler;
