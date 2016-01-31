@@ -160,7 +160,6 @@ function InstagramController(code) {
 
     this.getParams = function(callback) {
         jsonFile.readFile(config.filePaths.instagramParamsPath, function(error, data) {
-            
             logger.log(['getting params'], __filename, false);
 
             if (error) {
@@ -306,23 +305,21 @@ function InstagramController(code) {
                 return;
             }
 
-            logger.log(['Posted to database. Response:', this.mediaToSave], __filename, false);
+            logger.log(['Posted recent media to columbian beans'], __filename, false);
             callback();
         }.bind(this));
     };
 
     this._parseRecentMedia = function (media) {
-        var info = [];
+        this.recentMedia = [];
         _.each(media, function (entry) {
-            info.push({
+            this.recentMedia.push({
                 link: entry.link,
                 pic: entry.images['standard_resolution'].url,
                 text: entry.caption.text,
                 timeCreated: entry['created_time']
             });
-        });
-
-        this.recentMedia = info;
+        }, this);
     };
 
     this.constructUriPath = function(params) {

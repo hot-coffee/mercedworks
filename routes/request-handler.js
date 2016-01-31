@@ -39,14 +39,7 @@ function RequestHandler() {
         }
 
         logger.log(['page parameter:', req.params.name], __filename, false);
-
-        var renderPath = 'partials/' + req.params.name;
-
-        if (req.params.name === 'profile') {
-            console.log('*************************', req.params);
-        }
-
-        res.render(renderPath);
+        res.render('partials/' + req.params.name);
     };
 
     this._saveToken = function (params) {
