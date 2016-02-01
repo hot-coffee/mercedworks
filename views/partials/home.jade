@@ -11,12 +11,11 @@ div(ng-controller='mainController')
                     img(src='images/icons/instagram.png', class='icon')
                 a(href='https://twitter.com/mercedworks')
                     img(src='images/icons/twitter.png', class='icon')
-            a(href='pdown')
+            a(href='#/')
                 img(src='images/icons/arrow.png', class='arrow floating')
     div(id='pic_container')
         div(id='pic_holder')
             div(id='pic_rows', ng-repeat='profile in profiles')
-                p "{{'#/profiles/' + profile._id}}"
                 a(href="{{'#/profiles/' + profile._id}}")
                     img(ng-src='{{profile.pic}}', class='portrait')
                 h2(class='name') {{profile.firstName + ' ' + profile.lastName}}

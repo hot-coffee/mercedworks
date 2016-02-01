@@ -7,6 +7,6 @@ div(id='banner_blurry')
                 img(img ng-src="{{profile.pic}}" class="portrait")
             div(class='col-md-6')
                 img(src='images/mwlogo.png', class='profile_logo')
-                h1 '{{profile.firstName + ' ' + profile.lastName}}'
-                h1 '{{profile.occupation + ' at ' + profile.business}}'
-                h4 '{{profile.text}}'   
+                h1 {{profile.firstName + ' ' + profile.lastName}}
+                h1 {{profile.occupation + ' at ' + profile.business}}
+                h4 {{profile.text}}  

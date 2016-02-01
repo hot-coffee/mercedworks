@@ -4,7 +4,7 @@
 
 
 #banner{
-	background: url('../imgs/mwbanner.jpg');
+	background: url('../images/mwbanner.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -68,55 +68,10 @@
 	}
 }
 
-@media only screen and (max-width: 550px){
-	#banner{
-		#banner_info{
-			h3{
-				width: 70%;
-			}
-		}
-	}
-
-	#banner_blurry{
-		#profile_container{
-			a{
-				position: absolute;
-			}
-			.row{
-				.col-md-6{
-					.profile_logo{
-						display: none;
-					}
-					h4{
-						width: 90%;
-					}
-				}
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: 998px){
-
-	#banner_blurry{
-		#profile_container{
-			.row{
-				.col-md-6{
-					.profile_logo{
-						display: none;
-					}
-					h4{
-						width: 90%;
-					}
-				}
-			}
-		}
-	}
-}
 
 //PROFILES STYLINGS
 #banner_blurry{
-	background: url('../imgs/mwbanner.jpg');
+	background: url('../images/mwbanner.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -124,7 +79,7 @@
 	#profile_container{
 		background: rgba(0,0,0,.7);
 		padding: 30px;
-		height: 600px;
+		height: auto;
 		width: 80%;
 		position: absolute;
 		top: 50%;
@@ -143,6 +98,12 @@
 			text-align: center;
 			.col-md-6{
 				top: 10px;
+				.portrait{
+					position: relative;
+					top: 25px;
+					height: 450px;
+					width: 450px;
+				}
 				.profile_logo{
 					margin: 5px;
 					height: 170px;
@@ -159,6 +120,70 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 1000px){
+
+	#banner_blurry{
+		#profile_container{
+			width: 95%;
+			.row{
+				.col-md-6{
+					.portrait{
+						top: 0;
+						height: 300px;
+						width: 300px;
+					}
+					.profile_logo{
+						display: none;
+					}
+					h4{
+						width: 90%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 800px){
+	#banner{
+		#banner_info{
+			h3{
+				width: 70%;
+			}
+		}
+	}
+
+	#banner_blurry{
+		#profile_container{
+			a{
+				position: absolute;
+			}
+			.row{
+				.col-md-6{
+					.portrait{
+						top: 20px;
+						height: 225px;
+						width: 225px;
+						margin: 5px;
+					}
+					.profile_logo{
+						display: none;
+					}
+					h1{
+						//border: 2px solid white;
+						margin: 30px 0 20px 0;
+						font-size: 36px;
+					}
+					h4{
+						width: 99%;
+					}
+				}
+			}
+		}
+	}
+}
+
 
 //UPDATE SETTINGS
 .up_container{
