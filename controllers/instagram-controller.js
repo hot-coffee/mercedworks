@@ -158,7 +158,11 @@ function InstagramController(code) {
     };
 
     this.getParams = function(callback) {
-        jsonFile.readFile(config.filePaths.instagramParamsPath, function(error, data) {
+        var options = {flags: 'w'};
+        jsonFile.readFile(
+            config.filePaths.instagramParamsPath,
+            options,
+            function(error, data) {
             logger.log(['getting params'], __filename, false);
 
             if (error) {
