@@ -79,7 +79,6 @@ function RequestHandler() {
 
             // TODO map should be cached
             var responsePayload = [];
-            console.log('response payload', response.payload);
             if (response && response.payload) {
                 _.each(response.payload, function(profile) {
                     if (_.has(this.instagramProfileMap, profile.link)) {
