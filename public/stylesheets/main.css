@@ -91,9 +91,10 @@
 }
 #banner_blurry #profile_container .row .col-md-6 .portrait {
   position: relative;
-  top: 25px;
+  top: 10px;
   height: 450px;
   width: 450px;
+  margin: 30px;
 }
 #banner_blurry #profile_container .row .col-md-6 .profile_logo {
   margin: 5px;
@@ -119,11 +120,14 @@
   #banner_blurry #profile_container .row .col-md-6 .profile_logo {
     display: none;
   }
+  #banner_blurry #profile_container .row .col-md-6 h1 {
+    margin: 5px;
+  }
   #banner_blurry #profile_container .row .col-md-6 h4 {
-    width: 90%;
+    width: 80%;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   #banner #banner_info h3 {
     width: 70%;
   }
