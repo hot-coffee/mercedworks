@@ -23,6 +23,9 @@
 #banner #banner_info #icon_container .icon {
   margin: 0 5px;
 }
+#banner #banner_info a {
+  cursor: default;
+}
 #banner #banner_info .arrow {
   margin-top: 20px;
   height: 45px;
