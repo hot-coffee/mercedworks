@@ -39,14 +39,7 @@ function RequestHandler() {
         }
 
         logger.log(['page parameter:', req.params.name], __filename, false);
-
-        var renderPath = 'partials/' + req.params.name;
-
-        if (req.params.name === 'profile') {
-            console.log('*************************', req.params);
-        }
-
-        res.render(renderPath);
+        res.render('partials/' + req.params.name);
     };
 
     this._saveToken = function (params) {
@@ -100,6 +93,28 @@ function RequestHandler() {
             logger.log(['all profiles client response', responsePayload], __filename, false);
             jsonResponse(res, error, responsePayload);
         }.bind(this));
+    };
+
+    this.instagramRedirectUrl = function (req, res) {
+        var redirectUri = config.apiInfo.instagram.redirectUri;
+        logger.log(['getting instagram redirect uri:', redirectUri], __filename, false);
+        jsonResponse(res, null, {
+            redirectUri: redirectUri
+        });
+    };
+
+    this.fetchInstagramMedia = function (req, res) {
+        var igController = new InstagramController();
+        igController.fetchRecentMedia(function (error, media) {
+            if (error) {
+                logger.log(['Failed to fetch media with error:', error], __filename, true);
+                jsonResponse(res, error, null);
+                return;
+            }
+
+            logger.log(['Got media:', media], __filename, false);
+            jsonResponse(res, null, media);
+        });
     };
 }
 
