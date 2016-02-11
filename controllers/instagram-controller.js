@@ -57,7 +57,7 @@ function InstagramController(code) {
     };
 
     this.getAccessToken = function (callback) {
-        var params = queryString.stringify({
+        const params = queryString.stringify({
             client_id: config.apiInfo.instagram.clientId,
             client_secret: config.apiInfo.instagram.clientSecret,
             grant_type: 'authorization_code',
@@ -65,7 +65,7 @@ function InstagramController(code) {
             code: this.code
         });
 
-        var options = {
+        const options = {
             host: config.apiInfo.instagram.baseUri,
             port: config.apiInfo.instagram.port,
             path: config.apiInfo.instagram.accessTokenPath,
@@ -116,8 +116,8 @@ function InstagramController(code) {
             return;
         }
 
-        var params = {accessToken: this.accessToken, code: this.code};
-        var options = {flags: 'w'};
+        const params = {accessToken: this.accessToken, code: this.code};
+        const options = {flags: 'w'};
 
         jsonFile.writeFile(
             config.filePaths.instagramParamsPath,
@@ -158,7 +158,7 @@ function InstagramController(code) {
     };
 
     this.getParams = function(callback) {
-        var options = {flags: 'w'};
+        const options = {flags: 'w'};
         jsonFile.readFile(
             config.filePaths.instagramParamsPath,
             options,
@@ -198,11 +198,11 @@ function InstagramController(code) {
             return;
         }
 
-        var params = {
+        const params = {
             access_token: this.accessToken
         };
 
-        var options = {
+        const options = {
             host: config.apiInfo.instagram.baseUri,
             port: config.apiInfo.instagram.port,
             path: config.apiInfo.instagram.recentMediaPath + this.constructUriPath(params),
@@ -223,7 +223,7 @@ function InstagramController(code) {
             });
 
             res.on('end', function () {
-                var media = JSON.parse(data);
+                const media = JSON.parse(data);
                 if (_.has(media, 'data')) {
                     this._parseRecentMedia(media.data);
                 }
@@ -246,12 +246,12 @@ function InstagramController(code) {
             return;
         }
 
-        var data = {
+        const data = {
             database: config.columbianBeans.database,
             collection: config.columbianBeans.collections.profiles
         };
 
-        var client = requestJson.createClient(config.columbianBeans.hostAndPort());
+        const client = requestJson.createClient(config.columbianBeans.hostAndPort());
         client.post(config.columbianBeans.getPath, data, function (err, res, data) {
             if (err) {
                 logger.log(['Failed to retrieve entries from db:', err], __filename, true);
@@ -259,8 +259,13 @@ function InstagramController(code) {
                 return;
             }
 
-            logger.log(['Posted to database. Response:', data], __filename, false);
-            this.dbMedia = data.result || [];
+            if (_.has(data, 'payload')) {
+                logger.log(['Posted to database. Response:', data], __filename, false);
+                this.dbMedia = data.payload || [];
+            } else {
+                logger.log('No payload in recent media response', __filename, true);
+            }
+
             callback();
         }.bind(this));
     };
@@ -273,6 +278,7 @@ function InstagramController(code) {
         }
 
         this.mediaToSave = [];
+        logger.log(['save recent media:: db media:', this.dbMedia, 'recent media', this.recentMedia], __filename, false);
         _.each(this.recentMedia, function(entry) {
             var shouldAdd = true;
             for (var i=0; i < this.dbMedia.length; i++) {
@@ -295,13 +301,13 @@ function InstagramController(code) {
 
         logger.log(['Media to save', this.mediaToSave], __filename, false);
 
-        var data = {
+        const data = {
             database: config.columbianBeans.database,
             collection: config.columbianBeans.collections.profiles,
             payload: this.mediaToSave
         };
 
-        var client = requestJson.createClient(config.columbianBeans.hostAndPort());
+        const client = requestJson.createClient(config.columbianBeans.hostAndPort());
         client.post(config.columbianBeans.postPath, data, function (err, res, data) {
             if (err) {
                 callback(err);
