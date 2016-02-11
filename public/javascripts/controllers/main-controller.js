@@ -19,7 +19,6 @@ angular.module('MercedWorks').controller(
                     return;
                 }
 
-                console.log('fetched profiles:', profileFactory.profiles);
                 $scope.profiles = profileFactory.profiles;
             });
         }

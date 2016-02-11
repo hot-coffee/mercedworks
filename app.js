@@ -101,9 +101,9 @@ function App() {
             throw error;
         }
 
-        var bind = typeof port === 'string'
-            ? 'Pipe ' + port
-            : 'Port ' + port;
+        var bind = typeof config.port === 'string'
+            ? 'Pipe ' + config.port
+            : 'Port ' + config.port;
 
         // handle specific listen errors with friendly messages
         switch (error.code) {
