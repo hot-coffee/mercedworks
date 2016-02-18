@@ -259,13 +259,8 @@ function InstagramController(code) {
                 return;
             }
 
-            if (_.has(data, 'payload')) {
-                logger.log(['Posted to database. Response:', data], __filename, false);
-                this.dbMedia = data.payload || [];
-            } else {
-                logger.log('No payload in recent media response', __filename, true);
-            }
-
+            logger.log(['Posted to database. Response:', data], __filename, false);
+            this.dbMedia = _.has(data, 'payload') ? data.payload : [];
             callback();
         }.bind(this));
     };
@@ -278,7 +273,6 @@ function InstagramController(code) {
         }
 
         this.mediaToSave = [];
-        logger.log(['save recent media:: db media:', this.dbMedia, 'recent media', this.recentMedia], __filename, false);
         _.each(this.recentMedia, function(entry) {
             var shouldAdd = true;
             for (var i=0; i < this.dbMedia.length; i++) {
