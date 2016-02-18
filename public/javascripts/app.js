@@ -1,11 +1,13 @@
 console.log('loading app');
+
 angular.module('underscore', []).factory('_', ['$window', function($window) {
     return $window._;
 }]);
 
 angular.module('MercedWorks', [
     'ngRoute',
-    'underscore'
+    'underscore',
+    'duScroll'
 ]);
 
 angular.module('MercedWorks').config([
