@@ -164,8 +164,8 @@ module.exports = {
         tagCreator: function (tagType, tagObject) {
             var tag = tagType + ' ';
             var keys = _.keys(tagObject);
-            console.log('keys:', keys);
             var counter = 0;
+            
             _.each(keys, function(key) {
                 tag += key + '="' + tagObject[key] + '"' +
                     (counter === keys.length - 1 ? '' : ' ');
