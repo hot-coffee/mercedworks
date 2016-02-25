@@ -2,6 +2,8 @@
 
 var path = require('path');
 var logger = require('gruew-logger');
+var _ = require('underscore');
+
 
 // TODO all params that can be moved to process.env should be moved
 
@@ -90,12 +92,88 @@ module.exports = {
                 'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
             ],
+            metaHeaders: [
+                {
+                    name: 'description',
+                    content: 'Page description. No longer than 155 characters'
+                },
+                // twitter
+                {
+                    name: 'twitter:card',
+                    content: 'summary'
+                },
+                {
+                    name: 'twitter:site',
+                    content: 'publisher_handle'
+                },
+                {
+                    name: 'twitter:title',
+                    content: 'Page Title'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'Page description less than 200 characters'
+                },
+                {
+                    name: 'twitter:creator',
+                    content: '@author_handle'
+                },
+                {
+                    name: 'twitter:image',
+                    content: 'http://www.example.com/image.jpg'
+                },
+                // facebook
+                {
+                    property: 'og:title',
+                    content: 'Title Here'
+                },
+                {
+                    property: 'og:type',
+                    content: 'article'
+                },
+                {
+                    property: 'og:url',
+                    content: 'http://www.example.com/'
+                },
+                {
+                    property: 'og:image',
+                    content: 'http://example.com/image.jpg'
+                },
+                {
+                    property: 'og:description',
+                    content: 'Description Here'
+                },
+                {
+                    property: 'og:og:site_name',
+                    content: 'Site Name, i.e. Moz'
+                },
+                {
+                    property: 'fb:admins',
+                    content: 'Facebook numeric ID'
+                }
+            ],
             custom: customClientScripts
         },
+
         styleSheets: [
             'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
             'stylesheets/main.css',
             'stylesheets/animate.css'
-        ]
+        ],
+
+        tagCreator: function (tagType, tagObject) {
+            var tag = tagType + ' ';
+            var keys = _.keys(tagObject);
+            console.log('keys:', keys);
+            var counter = 0;
+            _.each(keys, function(key) {
+                tag += key + '="' + tagObject[key] + '"' +
+                    (counter === keys.length - 1 ? '' : ' ');
+                counter++;
+            });
+
+            tag += ' /';
+            return tag;
+        }
     }
 };
