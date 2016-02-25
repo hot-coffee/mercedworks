@@ -3,6 +3,10 @@ html
     head
         title=appName
 
+        // meta
+        each metaHeader in metaHeaders
+            #{tagCreator('meta', metaHeader)}
+
         // stylesheets
         each styleSheet in styleSheets
             link(rel='stylesheet', href=styleSheet)

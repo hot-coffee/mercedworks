@@ -26,7 +26,9 @@ function RequestHandler() {
             libScripts: config.client.scripts.lib,
             angularScripts: config.client.scripts.angular,
             customScripts: config.client.scripts.custom,
-            styleSheets: config.client.styleSheets
+            styleSheets: config.client.styleSheets,
+            metaHeaders: config.client.scripts.metaHeaders,
+            tagCreator: config.client.tagCreator
         });
     };
 
