@@ -117,6 +117,39 @@ function RequestHandler() {
             jsonResponse(res, null, media);
         });
     };
+
+    this.saveEmail = function(req, res) {
+        if (!_.has(req.body, 'email')) {
+            logger.log(['no email in request'], __filename, true);
+            jsonResponse(res, new Error('no email in request'), null);
+            return;
+        }
+
+        var payload = {
+            database: config.columbianBeans.database,
+            collection: config.columbianBeans.collections.users,
+            payload: [{email: req.body.email}]
+        };
+
+        jsonSender(config.columbianBeans, 'post', payload, function (error, response) {
+            if (error) {
+                logger.log(
+                    ['Failed to fetch profiles from:', config.columbianBeans.host],
+                    __filename,
+                    true
+                );
+            } else {
+                logger.log(
+                    ['sent payload:', payload, 'received response:', response],
+                    __filename,
+                    false
+                );
+            }
+
+            jsonResponse(res, error, error ? '' : 'success');
+        }.bind(this));
+
+    };
 }
 
 module.exports = RequestHandler;

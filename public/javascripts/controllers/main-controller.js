@@ -7,7 +7,22 @@ angular.module('MercedWorks').controller(
         '$location',
         '$anchorScroll',
         'profileFactory',
-        function($scope, $document, $location, $anchorScroll, profileFactory) {
+        'saveEmailFactory',
+        function($scope, $document, $location, $anchorScroll, profileFactory, saveEmailFactory) {
+            $scope.shouldShowEmailField = false;
+            $scope.emailValue = '';
+
+            $scope.showEmailField = function() {
+                console.log('showing email field');
+                $scope.shouldShowEmailField = true;
+            };
+
+
+            $scope.emailButtonPressed = function () {
+                console.log('saving email:', $scope.emailValue);
+                saveEmailFactory.saveEmail($scope.emailValue);
+            };
+
             const picContainerElm = angular.element(document.getElementById('pic_container'));
             const offset = 0;
             const duration = 500;
