@@ -50,7 +50,8 @@ module.exports = {
         getPath: 'all-records/',
         collections: {
             profiles: 'profiles',
-            parameters: 'parameters'
+            parameters: 'parameters',
+            users: 'users'
         },
         hostAndPort: function () {
             return this.host + ':' + this.port;
@@ -83,7 +84,8 @@ module.exports = {
                 'javascripts/controllers/instagram-signin-controller.js',
                 'javascripts/controllers/instagram-token-controller.js',
                 'javascripts/factories/profile-factory.js',
-                'javascripts/factories/instagram-factory.js'
+                'javascripts/factories/instagram-factory.js',
+                'javascripts/factories/save-email-factory.js'
             ],
             lib: [
                 'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js',
@@ -152,6 +154,7 @@ module.exports = {
                     content: 'Facebook numeric ID'
                 }
             ],
+
             custom: customClientScripts
         },
 
@@ -168,11 +171,10 @@ module.exports = {
             
             _.each(keys, function(key) {
                 tag += key + '="' + tagObject[key] + '"' +
-                    (counter === keys.length - 1 ? '' : ' ');
+                    (counter === keys.length - 1 ? ' /' : ' ');
                 counter++;
             });
 
-            tag += ' /';
             return tag;
         }
     }

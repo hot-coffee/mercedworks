@@ -17,7 +17,7 @@ angular.module('MercedWorks').factory(
                             callback(null);
                         }.bind(this))
                         .error(function(error) {
-                            console.log('Error retrieving profile info', 'error:', err);
+                            console.log('Error retrieving profile info', 'error:', error);
                             callback(error);
                         });
                 },

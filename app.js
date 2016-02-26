@@ -84,6 +84,8 @@ function App() {
         app.get('/api/instagram-redirect-url', requestHandler.instagramRedirectUrl.bind(requestHandler));
         app.get('/fetch-instagram-media', requestHandler.fetchInstagramMedia.bind(requestHandler));
 
+        app.post('/api/save-email', requestHandler.saveEmail.bind(requestHandler));
+
         var port = config.port;
         var server = app.listen(port, function () {
             logger.log(
