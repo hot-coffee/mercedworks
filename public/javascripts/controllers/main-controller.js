@@ -20,7 +20,11 @@ angular.module('MercedWorks').controller(
 
             $scope.emailButtonPressed = function () {
                 console.log('saving email:', $scope.emailValue);
-                saveEmailFactory.saveEmail($scope.emailValue);
+                saveEmailFactory.saveEmail($scope.emailValue, function(success) {
+                    if (success) {
+                        $scope.emailValue = '';
+                    }
+                });
             };
 
             const picContainerElm = angular.element(document.getElementById('pic_container'));
