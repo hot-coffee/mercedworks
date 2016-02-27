@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+body {
+  font-family: "Arimo", sans-serif;
+}
 #banner {
   background: url('../images/mwbanner.jpg');
   background-position: center;
@@ -14,6 +18,32 @@
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
+}
+#banner #banner_info #tshirt {
+  height: 80px;
+  width: 90px;
+  margin: -10px 0 20px 0;
+  cursor: pointer;
+}
+#banner #banner_info #email-input {
+  margin: -5px 0 25px 0;
+}
+#banner #banner_info #email-input h4 {
+  color: white;
+  margin: 0 0 5px 0;
+}
+#banner #banner_info #email-input #email {
+  background: none;
+  border: 1px solid white;
+  padding: 5px;
+  color: white;
+  margin-right: 5px;
+}
+#banner #banner_info #email-input #email-button {
+  background: #2ecc71;
+  padding: 5px;
+  border: 1px solid #2ecc71;
+  color: white;
 }
 #banner #banner_info #icon_container {
   width: 60%;

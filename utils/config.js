@@ -97,24 +97,24 @@ module.exports = {
             metaHeaders: [
                 {
                     name: 'description',
-                    content: 'Page description. No longer than 155 characters'
+                    content: 'Weekly, handcrafted stories proving #mercedworks'
                 },
                 // twitter
                 {
                     name: 'twitter:card',
-                    content: 'summary'
+                    content: 'Merced Works is a collection of weekly, handcrafted stories proving #mercedworks'
                 },
                 {
                     name: 'twitter:site',
-                    content: 'publisher_handle'
+                    content: '@MercedWorks'
                 },
                 {
                     name: 'twitter:title',
-                    content: 'Page Title'
+                    content: 'Merced Works'
                 },
                 {
                     name: 'twitter:description',
-                    content: 'Page description less than 200 characters'
+                    content: 'Weekly, handcrafted stories proving #mercedworks'
                 },
                 {
                     name: 'twitter:creator',
@@ -122,12 +122,12 @@ module.exports = {
                 },
                 {
                     name: 'twitter:image',
-                    content: 'http://www.example.com/image.jpg'
+                    content: './public/images/mworks.jpg'
                 },
                 // facebook
                 {
                     property: 'og:title',
-                    content: 'Title Here'
+                    content: 'Merced Works'
                 },
                 {
                     property: 'og:type',
@@ -135,15 +135,15 @@ module.exports = {
                 },
                 {
                     property: 'og:url',
-                    content: 'http://www.example.com/'
+                    content: 'www.merced.works'
                 },
                 {
                     property: 'og:image',
-                    content: 'http://example.com/image.jpg'
+                    content: './public/images/mworks.jpg'
                 },
                 {
                     property: 'og:description',
-                    content: 'Description Here'
+                    content: 'Merced Works in a collection of weekly, handcrafted stories proving #mercedworks'
                 },
                 {
                     property: 'og:og:site_name',
