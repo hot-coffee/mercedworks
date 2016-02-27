@@ -27,9 +27,9 @@ angular.module('MercedWorks').controller(
                 });
             };
 
-            const picContainerElm = angular.element(document.getElementById('pic_container'));
-            const offset = 0;
-            const duration = 500;
+            var picContainerElm = angular.element(document.getElementById('pic_container'));
+            var offset = 0;
+            var duration = 500;
             $scope.scrollToProfiles = function() {
                 $document.scrollToElementAnimated(picContainerElm, offset, duration);
             };
