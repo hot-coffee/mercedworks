@@ -3,7 +3,7 @@ angular.module('MercedWorks').factory(
         '$http',
         function($http){
             return {
-                saveEmail: function(email) {
+                saveEmail: function(email, callback) {
                     var postData = JSON.stringify({
                         email: email
                     });
@@ -11,9 +11,11 @@ angular.module('MercedWorks').factory(
                     $http.post('api/save-email', postData)
                         .success(function(data) {
                             console.log('saved email successfully');
+                            callback(true);
                         })
                         .error(function(error) {
                             console.log('Error saving email', 'error:', error);
+                            callback(false);
                         });
                 }
             };
