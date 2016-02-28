@@ -11,20 +11,23 @@ angular.module('MercedWorks').controller(
         function($scope, $document, $location, $anchorScroll, profileFactory, saveEmailFactory) {
             $scope.shouldShowEmailField = false;
             $scope.emailValue = '';
+            var emailShowing = true;
 
             $scope.showEmailField = function() {
-                console.log('showing email field');
-                $scope.shouldShowEmailField = true;
+                console.log('toggling email field:', emailShowing);
+                $scope.shouldShowEmailField = emailShowing;
+                emailShowing = !emailShowing;
             };
-
 
             $scope.emailButtonPressed = function () {
                 console.log('saving email:', $scope.emailValue);
-                saveEmailFactory.saveEmail($scope.emailValue, function(success) {
-                    if (success) {
-                        $scope.emailValue = '';
-                    }
-                });
+                if ($scope.emailValue.length > 0 && $scope.emailValue.indexOf('@') != -1) {
+                    saveEmailFactory.saveEmail($scope.emailValue, function (success) {
+                        if (success) {
+                            $scope.emailValue = '';
+                        }
+                    });
+                }
             };
 
             var picContainerElm = angular.element(document.getElementById('pic_container'));
