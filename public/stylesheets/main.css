@@ -114,6 +114,7 @@ body {
 }
 #banner_blurry #profile_container #day_container .row a {
   color: inherit;
+  cursor: pointer;
 }
 #banner_blurry #profile_container #day_container .row .day {
   padding: 5px;
