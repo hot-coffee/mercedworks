@@ -7,9 +7,13 @@ div(ng-controller='mainController')
             img(id='tshirt', src='images/tshirt.png', ng-click='showEmailField()')
             div(id='email-input', ng-show='shouldShowEmailField', class='email-show-hide')
                 h4 Reserve Your Shirt Today!
-                img(src = "images/icons/email_confirm.png", class="email_icon")
-                input(id='email', type='text', name='email', placeholder='Your Email Here..', ng-model='emailValue')
-                button(id='email-button', ng-click='emailButtonPressed()') Submit
+                div(class = "row_container")
+                    div(class = 'email_row')
+                        img(src = "images/icons/email_confirm.png", class="email_icon")
+                        h5 success!
+                    div(class = 'email_row')
+                        input(id='email', type='text', name='email', placeholder='Your Email Here..', ng-model='emailValue')
+                        button(id='email-button', ng-click='emailButtonPressed()') Submit
             div(id='icon_container')
                 a(href='https://www.facebook.com/mercedworks/?fref=ts')
                     img(src='images/icons/facebook.png', class='icon')
