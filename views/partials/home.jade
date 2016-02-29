@@ -21,7 +21,7 @@ div(ng-controller='mainController')
         div(id='pic_holder')
             div(id='pic_rows', ng-repeat='profile in profiles')
                 a(href="{{'#/profiles/' + profile._id}}")
-                    img(ng-src='{{profile.pic}}', class='portrait')
+                    img(ng-src='{{profile.pics[0]}}', class='portrait')
                 h2(class='name') {{profile.firstName + ' ' + profile.lastName}}
                 h3(class='job') {{profile.occupation}}
                 
