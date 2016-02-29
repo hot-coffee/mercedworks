@@ -121,6 +121,10 @@ body {
   -webkit-transition: .2s all;
   -moz-transition: .2s all;
 }
+#banner_blurry #profile_container #day_container .row .day img {
+  width: 30px;
+  height: 32px;
+}
 #banner_blurry #profile_container #day_container .row .day h4 {
   font-size: 24px;
   margin: 0;
