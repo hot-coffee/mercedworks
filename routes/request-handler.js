@@ -80,24 +80,22 @@ function RequestHandler() {
                 );
             }
 
-            // TODO map should be cached
             if (response && response.payload) {
                 logger.log(['all profiles client response', response.payload], __filename, false);
                 var profiles = [];
                 _.each(response.payload, function (profile) {
-                     const picUrl = config.client.s3BaseUrl + md5Hasher.hashName(
-                        profile.firstName.toLowerCase(),
-                        profile.lastName.toLowerCase()
-                    );
-
+                    const picUrl = config.client.s3BaseUrl + profile.picFolder;
                     var pics = [];
-                    var counter = 0;
                     for (var i = 0; i < profile.interviews.length; i++) {
                         pics.push(picUrl + '/' + i.toString() + '.jpeg');
                     }
 
                     profile['pics'] = pics;
                     profiles.push(profile);
+                });
+
+                profiles.sort(function(profile1, profile2) {
+                    return profile1.interviewId < profile2.interviewId;
                 });
 
                 jsonResponse(res, null, profiles);
