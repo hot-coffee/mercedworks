@@ -76,6 +76,7 @@ module.exports = {
     },
     client: {
         appName: appName,
+        s3BaseUrl: 'https://m-works-profile-images.s3.amazonaws.com/',
         scripts: {
             angular: [
                 'javascripts/app.js',
@@ -122,7 +123,7 @@ module.exports = {
                 },
                 {
                     name: 'twitter:image',
-                    content: './public/images/mworks.jpg'
+                    content: 'images/mworks.jpg'
                 },
                 // facebook
                 {
@@ -174,6 +175,8 @@ module.exports = {
                     (counter === keys.length - 1 ? ' /' : ' ');
                 counter++;
             });
+
+            console.log(tag);
 
             return tag;
         }

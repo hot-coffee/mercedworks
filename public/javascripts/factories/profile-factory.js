@@ -7,6 +7,7 @@ angular.module('MercedWorks').factory(
 
                 getProfiles: function(callback) {
                     if (this.profiles) {
+                        console.log('profiles already fetched');
                         callback(null);
                         return;
                     }
@@ -30,6 +31,7 @@ angular.module('MercedWorks').factory(
                     for (var i=0; i < this.profiles.length; i++) {
                         var profile = this.profiles[i];
                         if (profileId === profile._id) {
+                            console.log('found profile', profileId);
                             return profile;
                         }
                     }

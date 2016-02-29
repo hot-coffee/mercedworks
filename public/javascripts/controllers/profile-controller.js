@@ -5,6 +5,46 @@ angular.module('MercedWorks').controller(
         '$routeParams',
         'profileFactory',
         function($scope, $routeParams, profileFactory) {
+
+
+            var currentPageIndex = 0;
+
+            var updateCurrentMedia = function() {
+                $scope.text = $scope.profile.interviews[currentPageIndex];
+                $scope.picUrl = $scope.profile.pics[currentPageIndex];
+            };
+
+            $scope.introPressed = function() {
+                console.log('intro button pressed with page index:', currentPageIndex);
+                if (currentPageIndex === 0) {
+                    return;
+                }
+
+                currentPageIndex = 0;
+                updateCurrentMedia();
+            };
+
+            $scope.workPressed = function() {
+                console.log('work button pressed with page index:', currentPageIndex);
+                if (currentPageIndex === 1 || $scope.profile.interviews.length < 2) {
+                    return;
+                }
+
+                currentPageIndex = 1;
+                updateCurrentMedia();
+            };
+
+            $scope.plansPressed = function() {
+                console.log('plans button pressed with page index:', currentPageIndex);
+                if (currentPageIndex === 2 || $scope.profile.interviews.length < 3) {
+                    return;
+                }
+
+                currentPageIndex = 2;
+                updateCurrentMedia();
+            };
+
+
             var init = function() {
                 profileFactory.getProfiles(function(error) {
                     if (error) {
@@ -13,32 +53,8 @@ angular.module('MercedWorks').controller(
                     }
 
                     $scope.profile = profileFactory.profileForId($routeParams.profileId);
-
-                    var currentPage = 0;
-
-                    $scope.updatePage = function(){
-                        var interviewObject = $scope.profile.interview[currentPage];
-                        var pic = interviewObject.pic;
-                        var bio = interviewObject.bio;
-
-                        
-                    }
-
-                    $scope.t0clicked= function(){
-                        currentPage = 0; 
-                        updatePage();
-                    }
-
-                    $scope.t1clicked = function(){
-                        currentPage = 1;
-                        updatePage();
-                    }
-
-                    $scope.t2clicked = function(){
-                        currentPage = 2;
-                        updatePage();
-                    }
-
+                    $scope.text = $scope.profile.interviews[0];
+                    $scope.picUrl = $scope.profile.pics[0];
                 });
             };
 

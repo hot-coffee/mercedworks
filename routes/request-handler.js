@@ -9,6 +9,7 @@ var uriParamParser = require('./../utils/uri-param-parser');
 var _ = require('underscore');
 var InstagramController = require('./../controllers/instagram-controller');
 var jsonFile = require('jsonfile');
+var md5Hasher = require('./../utils/md5-hasher');
 
 
 function RequestHandler() {
@@ -80,19 +81,29 @@ function RequestHandler() {
             }
 
             // TODO map should be cached
-            var responsePayload = [];
             if (response && response.payload) {
-                _.each(response.payload, function(profile) {
-                    if (_.has(this.instagramProfileMap, profile.link)) {
-                        profile = _.extend(profile, this.instagramProfileMap[profile.link]);
+                logger.log(['all profiles client response', response.payload], __filename, false);
+                var profiles = [];
+                _.each(response.payload, function (profile) {
+                     const picUrl = config.client.s3BaseUrl + md5Hasher.hashName(
+                        profile.firstName.toLowerCase(),
+                        profile.lastName.toLowerCase()
+                    );
+
+                    var pics = [];
+                    var counter = 0;
+                    for (var i = 0; i < profile.interviews.length; i++) {
+                        pics.push(picUrl + '/' + i.toString() + '.jpeg');
                     }
 
-                    responsePayload.push(profile);
-                }, this);
-            }
+                    profile['pics'] = pics;
+                    profiles.push(profile);
+                });
 
-            logger.log(['all profiles client response', responsePayload], __filename, false);
-            jsonResponse(res, error, responsePayload);
+                jsonResponse(res, null, profiles);
+            } else {
+                jsonResponse(res, error, null);
+            }
         }.bind(this));
     };
 

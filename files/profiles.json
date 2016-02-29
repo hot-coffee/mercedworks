@@ -1,0 +1,60 @@
+[
+  {
+    "firstName": "Andre",
+    "lastName": "Green",
+    "occupation": "Developer",
+    "business": "SugarCRM",
+    "interviews": [
+      "Any given day, Andre has three things on his mind: Programming, flying and drinking coffee. As a developer for Sugar CRM, Andre builds what others can only imagine. If he's not at home, he's at @vault_works where he'd describe his work style as sporadic, whereas his family would say constant.'"
+    ]
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Hansen",
+    "occupation": "Barista",
+    "business": "Coffee Bandits",
+    "interviews": [
+      "Michael Hansen knows his drinks and he knows his bikes. Michael Hansen, however, has no idea what he actually does. Well, that's what he says. In reality, most mornings you can find Michael downtown at @coffeebandits where he grinds beans and pulls the perfect shots for your morning pick-me-up."
+    ]
+  },
+  {
+    "firstName": "Merced",
+    "lastName": "Works",
+    "occupation": "Information",
+    "business": "Merced Works",
+    "interviews": [
+      "Forbes once named us the \"Worst Place in the U.S. To Do Business.\" Through weekly stories of people in our community proving Forbes wrong, we aim to show how #MercedWorks."
+    ]
+  },
+  {
+    "firstName": "Steven",
+    "lastName": "Duval",
+    "occupation": "CEO",
+    "business": "BEAT",
+    "interviews": [
+      "Steven considers himself a jack of all trades, and a master of none. While most people may prefer working during daylight hours, he admits he gets his best work done between midnight and dawn. Between @learn_beat and @mercedworks, you can find him traveling around California in pursuit of new adventures and excellent beer."
+    ]
+  },
+  {
+    "firstName": "Mitch & Cami",
+    "lastName": "Makinson",
+    "occupation": "Owners",
+    "business": "MidState Crossfit",
+    "interviews": [
+      "Mitch and Cami are the definition of a power couple. Between barbells and coffee, morning WODs and coaching @midstatecrossfit, they’ve begun digging in roots as young business owners here in Merced. When the weights are racked and the chalk dust settles, Mitch and Cami unwind in Westeros with a giant bucket of popcorn, good beer and great company.",
+      "Running an empire of iron, rubber and sweat in Merced is no easy task. In almost a year and half, @midstatecrossfit has become more than just a gym; it’s become a community. While the worst part might be mopping up the hard work, Mitch and Cami thrive on others reaching their goals in the gym and out.",
+      "All great empires grow, and with a name as ubiquitous as “MidState”, @midstatecrossfit has it’s eyes set on Central California. As they continue to build their flagship in Merced, Mitch and Cami dream of opening doors all across the Central Valley in hopes of building a statewide community of fitness and well-being."
+    ]
+  },
+  {
+    "firstName": "Brittany",
+    "lastName": "Oakes",
+    "occupation": "Founder",
+    "business": "@MLFP",
+    "interviews": [
+      "Some have the gift of a green thumb, while others are blessed with a green mind; Brittany has both. Having been all the around the world, Brittany’s taking her global perspective and laying anchor in Merced to promote sustainable community gardens with the Merced Local Food Project (@MLFP)."
+      "Brittany wears many hats, but the stitching on both are of a common thread; community advocacy. Whether it’s promoting social programs or advocating on behalf of responsible food growth and consumption, Brittany has a seed of her own to plant and watch grow here in Merced.",
+      "With roots of her own - as varied as the gardens that she grows - Brittany plans to touch down on soils far removed from Merced. While she plans on stretching her branches between three continents in the next few years, she keeps Merced in mind as a city she could someday lay her roots down and help grow."
+    ]
+  }
+]
