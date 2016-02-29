@@ -32,6 +32,11 @@ body {
   color: white;
   margin: 0 0 5px 0;
 }
+#banner #banner_info #email-input .email_icon {
+  height: 32px;
+  width: 32px;
+  margin-right: 5px;
+}
 #banner #banner_info #email-input #email {
   background: none;
   border: 1px solid white;
