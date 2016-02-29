@@ -122,7 +122,7 @@ module.exports = {
                 },
                 {
                     name: 'twitter:image',
-                    content: './public/images/mworks.jpg'
+                    content: 'images/mworks.jpg'
                 },
                 // facebook
                 {
@@ -174,6 +174,8 @@ module.exports = {
                     (counter === keys.length - 1 ? ' /' : ' ');
                 counter++;
             });
+
+            console.log(tag);
 
             return tag;
         }

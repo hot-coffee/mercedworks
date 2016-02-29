@@ -10,6 +10,9 @@ var debug = require('debug')('mercedworks:server');
 var RequestHandler = require('./routes/request-handler');
 var config = require('./utils/config');
 var InstagramController = require('./controllers/instagram-controller');
+var nameHashPrinter = require('./utils/name-hash-printer');
+var md5Hasher = require('./utils/md5-hasher');
+var userCreator = require('./utils/user-creator');
 
 
 function App() {
@@ -24,6 +27,13 @@ function App() {
 
                 logger.log(['Got media:', media], __filename, false);
             });
+        } else if (process.argv.length > 2 && process.argv[2] === 'hash') {
+            const firstName = 'melissa';
+            const lastName = 'eisner';
+            console.log(firstName, lastName);
+            console.log(md5Hasher.hashName(firstName, lastName));
+        } else if (process.argv.length > 2 && process.argv[2] === 'createusers') {
+            userCreator();
         } else {
             this.startServer();
         }

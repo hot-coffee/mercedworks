@@ -80,19 +80,20 @@ function RequestHandler() {
             }
 
             // TODO map should be cached
-            var responsePayload = [];
             if (response && response.payload) {
+                var responsePayload = [];
                 _.each(response.payload, function(profile) {
                     if (_.has(this.instagramProfileMap, profile.link)) {
                         profile = _.extend(profile, this.instagramProfileMap[profile.link]);
                     }
-
                     responsePayload.push(profile);
                 }, this);
-            }
 
-            logger.log(['all profiles client response', responsePayload], __filename, false);
-            jsonResponse(res, error, responsePayload);
+                logger.log(['all profiles client response', responsePayload], __filename, false);
+                jsonResponse(res, null, responsePayload);
+            } else {
+                jsonResponse(res, error, null);
+            }
         }.bind(this));
     };
 
