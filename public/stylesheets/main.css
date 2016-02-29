@@ -39,6 +39,7 @@ body {
 #banner #banner_info #email-input .row_container .email_row {
   float: left;
   text-align: center;
+  margin: 5px;
 }
 #banner #banner_info #email-input .email_icon {
   height: 32px;
