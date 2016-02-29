@@ -79,8 +79,8 @@ body {
   display: inline-block;
 }
 #pic_container #pic_holder #pic_rows .portrait {
-  height: 300px;
-  width: 300px;
+  height: 275px;
+  width: 275px;
   margin: 10px;
   cursor: pointer;
 }
@@ -109,6 +109,46 @@ body {
   -moz-transform: translate(-50%, -50%);
   color: #FFFFFF;
 }
+#banner_blurry #profile_container #day_container {
+  width: inherit;
+}
+#banner_blurry #profile_container #day_container .row a {
+  color: inherit;
+}
+#banner_blurry #profile_container #day_container .row .day {
+  padding: 5px;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
+#banner_blurry #profile_container #day_container .row .day h4 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+#banner_blurry #profile_container #day_container .row .day img,
+#banner_blurry #profile_container #day_container .row .day h4 {
+  display: inline-block;
+  margin-right: 5px;
+}
+#banner_blurry #profile_container #day_container .row #intro:hover {
+  background: #e74c3c;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
+#banner_blurry #profile_container #day_container .row #work:hover {
+  background: #f39c12;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
+#banner_blurry #profile_container #day_container .row #plans:hover {
+  background: #2980b9;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
 #banner_blurry #profile_container #back {
   color: white;
   text-transform: uppercase;
@@ -128,7 +168,7 @@ body {
   margin: 30px;
 }
 #banner_blurry #profile_container .row .col-md-6 .profile_logo {
-  margin: 5px;
+  margin: 30px 0 0 5px;
   height: 170px;
   width: 150px;
 }
@@ -145,14 +185,15 @@ body {
   }
   #banner_blurry #profile_container .row .col-md-6 .portrait {
     top: 0;
-    height: 300px;
-    width: 300px;
+    height: 275px;
+    width: 275px;
+    margin: 15px 0 15px 0;
   }
   #banner_blurry #profile_container .row .col-md-6 .profile_logo {
     display: none;
   }
   #banner_blurry #profile_container .row .col-md-6 h1 {
-    margin: 5px;
+    margin: 0 0 5px 0;
   }
   #banner_blurry #profile_container .row .col-md-6 h4 {
     width: 80%;
@@ -162,24 +203,22 @@ body {
   #banner #banner_info h3 {
     width: 70%;
   }
-  #banner_blurry #profile_container a {
-    position: absolute;
-  }
   #banner_blurry #profile_container .row .col-md-6 .portrait {
     top: 20px;
     height: 225px;
     width: 225px;
-    margin: 5px;
+    margin: 10px;
   }
   #banner_blurry #profile_container .row .col-md-6 .profile_logo {
     display: none;
   }
   #banner_blurry #profile_container .row .col-md-6 h1 {
-    margin: 30px 0 20px 0;
-    font-size: 36px;
+    margin: 20px 0 10px 0;
+    font-size: 30px;
   }
   #banner_blurry #profile_container .row .col-md-6 h4 {
     width: 99%;
+    font-size: 16px;
   }
 }
 .up_container {
