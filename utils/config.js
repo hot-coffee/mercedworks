@@ -39,8 +39,7 @@ module.exports = {
     port: port,
     filePaths: {
         logFilePath: path.join('/var/log', appName),
-        instagramParamsPath: path.join(__dirname, '../files/instagram-params.json'),
-        instagramProfileMapPath: path.join(__dirname, '../files/instagram-profile-map.json')
+        instagramParamsPath: path.join(__dirname, '../files/instagram-params.json')
     },
     columbianBeans: {
         database: appName.toLowerCase(),

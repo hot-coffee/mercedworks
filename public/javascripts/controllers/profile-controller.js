@@ -5,8 +5,6 @@ angular.module('MercedWorks').controller(
         '$routeParams',
         'profileFactory',
         function($scope, $routeParams, profileFactory) {
-
-
             var currentPageIndex = 0;
             $scope.tabPressed = function(value) {
                 if (value === currentPageIndex) {

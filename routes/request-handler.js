@@ -13,7 +13,6 @@ var md5Hasher = require('./../utils/md5-hasher');
 
 
 function RequestHandler() {
-    this.instagramProfileMap = jsonFile.readFileSync(config.filePaths.instagramProfileMapPath);
     this.index = function (req, res, next) {
         logger.log(['In request handler index method'], __filename, false);
         var params = uriParamParser(req.originalUrl);
