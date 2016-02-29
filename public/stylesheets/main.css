@@ -89,6 +89,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.disabled {
+  background: #9c9c9d;
+}
 #banner_blurry {
   background: url('../images/mwbanner.jpg');
   background-position: center;
