@@ -4,13 +4,13 @@ div(id='banner_blurry')
         a(id='back', href='#/', class='stretchLeft') x
         div(id = 'day_container' class = "container")
             div(class = "row")
-                div(class="col-xs-4 day", id='intro', ng-click='introPressed()')
+                div(class="col-xs-4 day", id='intro', ng-click='tabPressed(0)')
                     img(src="images/icons/people.png")
                     h4 Intro
-                div(class='col-xs-4 day', id='work', ng-click='workPressed()')
+                div(class='col-xs-4 day', id='work', ng-click='tabPressed(1)')
                     img(src='images/icons/work.png')
                     h4 Work
-                div(class = 'col-xs-4 day', id="plans", ng-click='plansPressed()')
+                div(class='col-xs-4 day', id="plans", ng-click='tabPressed(2)')
                     img(src='images/icons/plans.png')
                     h4 Plans
         div(class='row')
