@@ -1,6 +1,15 @@
 //COLOR CODINGS
 @white: #FFFFFF;
 @mblue: rgba(52,61,68,.6);
+@introred:#e74c3c;
+@workorange:#f39c12;
+@plansblue:#2980b9;
+
+.transition(){
+	transition: .2s all;
+	-webkit-transition: .2s all;
+	-moz-transition: .2s all;
+}
 
 //font imports
 @import url(https://fonts.googleapis.com/css?family=Arimo);
@@ -88,8 +97,8 @@ body{
 		#pic_rows{
 			display: inline-block;
 			.portrait{
-				height: 300px;
-				width: 300px;
+				height: 275px;
+				width: 275px;
 				margin: 10px;
 				cursor: pointer;		
 			}
@@ -121,6 +130,47 @@ body{
 		-webkit-transform: translate(-50%,-50%);
 		-moz-transform: translate(-50%,-50%);
 		color: @white;
+		#day_container{
+			//border: 2px solid white;
+			width: inherit;
+			.row{
+				a{
+					color: inherit;
+				}
+				.day{
+					//border: 2px solid white;
+					padding: 5px;
+					.transition;
+					h4{
+						font-size: 24px;
+						margin:0;
+						padding: 0;
+					}
+					img,h4{
+						display: inline-block;
+						margin-right: 5px;
+					}
+				}
+				#intro{
+					&:hover{
+						background: @introred;
+						.transition;
+					}
+				}
+				#work{
+					&:hover{
+						background: @workorange;
+						.transition;
+					}
+				}
+				#plans{
+					&:hover{
+						background: @plansblue;
+						.transition;
+					}
+				}
+			}
+		}
 		#back{
 			color: white;
 			text-transform: uppercase;
@@ -139,7 +189,7 @@ body{
 					margin: 30px;
 				}
 				.profile_logo{
-					margin: 5px;
+					margin: 30px 0 0 5px;
 					height: 170px;
 					width: 150px;
 				}
@@ -164,14 +214,15 @@ body{
 				.col-md-6{
 					.portrait{
 						top: 0;
-						height: 300px;
-						width: 300px;
+						height: 275px;
+						width: 275px;
+						margin: 15px 0 15px 0;
 					}
 					.profile_logo{
 						display: none;
 					}
 					h1{
-						margin: 5px;
+						margin: 0 0 5px 0;
 					}
 					h4{
 						width: 80%;
@@ -193,27 +244,25 @@ body{
 
 	#banner_blurry{
 		#profile_container{
-			a{
-				position: absolute;
-			}
 			.row{
 				.col-md-6{
 					.portrait{
 						top: 20px;
 						height: 225px;
 						width: 225px;
-						margin: 5px;
+						margin: 10px;
 					}
 					.profile_logo{
 						display: none;
 					}
 					h1{
 						//border: 2px solid white;
-						margin: 30px 0 20px 0;
-						font-size: 36px;
+						margin: 20px 0 10px 0;
+						font-size: 30px;
 					}
 					h4{
 						width: 99%;
+						font-size: 16px;
 					}
 				}
 			}
