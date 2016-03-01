@@ -11,7 +11,9 @@ angular.module('MercedWorks').controller(
             $scope.introTabClass = 'col-xs-4 day enabled_intro';
             $scope.workTabClass = 'col-xs-4 day enabled_work';
             $scope.plansTabClass = 'col-xs-4 day enabled_plans';
-
+            $scope.introPicPath = 'images/icons/people.png';
+            $scope.workPicPath = 'images/icons/work.png';
+            $scope.plansPicPath = 'images/icons/plans.png';
 
             $scope.tabPressed = function(value) {
                 if (value === currentPageIndex) {
@@ -32,6 +34,15 @@ angular.module('MercedWorks').controller(
 
                 $scope.plansTabClass = $scope.profile.interviews.length >= 3 ?
                     'col-xs-4 day enabled_plans' : 'col-xs-4 day disabled';
+
+                $scope.introPicPath = $scope.profile.interviews.length >= 1 ?
+                    'images/icons/intro.png' : 'images/icons/intro_disabled.png';
+
+                $scope.workPicPath = $scope.profile.interviews.length >= 2 ?
+                    'images/icons/work.png' : 'images/icons/work_disabled.png';
+
+                $scope.plansPicPath = $scope.profile.interviews.length >= 3 ?
+                    'images/icons/plans.png' : 'images/icons/plans_disabled.png';
             };
 
             var init = function() {
