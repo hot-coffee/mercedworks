@@ -127,8 +127,30 @@ body{
 
 //disabled class
 .disabled{
-	background: #9c9c9d;
-	&:hover{background: #9c9c9d;}
+	&:hover{
+		background: #9c9c9d;
+	}
+}
+
+.enabled_intro{
+	&:hover{
+		background: @introred; 
+		.transition;
+	}
+}
+
+.enabled_work{
+	&:hover{
+		background:@workorange;
+		.transition;
+	}
+}
+
+.enabled_plans{
+	&:hover{
+		background:@plansblue;
+		.transition;
+	}
 }
 
 
@@ -175,24 +197,6 @@ body{
 					img,h4{
 						display: inline-block;
 						margin-right: 5px;
-					}
-				}
-				#intro{
-					&:hover{
-						background: @introred;
-						.transition;
-					}
-				}
-				#work{
-					&:hover{
-						background: @workorange;
-						.transition;
-					}
-				}
-				#plans{
-					&:hover{@plansblue
-						background: ;
-						.transition;
 					}
 				}
 			}
