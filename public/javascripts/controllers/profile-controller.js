@@ -4,8 +4,15 @@ angular.module('MercedWorks').controller(
         '$scope',
         '$routeParams',
         'profileFactory',
-        function($scope, $routeParams, profileFactory) {
+        '_',
+        function($scope, $routeParams, profileFactory, _) {
             var currentPageIndex = 0;
+
+            $scope.introTabClass = 'col-xs-4 day enabled_intro';
+            $scope.workTabClass = 'col-xs-4 day enabled_work';
+            $scope.plansTabClass = 'col-xs-4 day enabled_plans';
+
+
             $scope.tabPressed = function(value) {
                 if (value === currentPageIndex) {
                     return;
@@ -16,12 +23,15 @@ angular.module('MercedWorks').controller(
                 $scope.picUrl = $scope.profile.pics[currentPageIndex];
             };
 
-            $scope.getTabClass = function (tabNumber) {
-                console.log('tab number entered:', tabNumber);
-                var className = 'col-xs-4 day';
-                className += (tabNumber <= $scope.profile.interviews.length - 1) ?
-                    '' : 'disabled';
-                return className;
+            var setUpTabs = function() {
+                $scope.introTabClass = $scope.profile.interviews.length >= 1 ?
+                    'col-xs-4 day enabled_intro' : 'col-xs-4 day disabled';
+
+                $scope.workTabClass = $scope.profile.interviews.length >= 2 ?
+                    'col-xs-4 day enabled_work' : 'col-xs-4 day disabled';
+
+                $scope.plansTabClass = $scope.profile.interviews.length >= 3 ?
+                    'col-xs-4 day enabled_plans' : 'col-xs-4 day disabled';
             };
 
             var init = function() {
@@ -34,6 +44,8 @@ angular.module('MercedWorks').controller(
                     $scope.profile = profileFactory.profileForId($routeParams.profileId);
                     $scope.text = $scope.profile.interviews[0];
                     $scope.picUrl = $scope.profile.pics[0];
+
+                    setUpTabs();
                 });
             };
 
