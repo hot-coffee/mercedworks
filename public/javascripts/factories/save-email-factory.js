@@ -1,7 +1,8 @@
 angular.module('MercedWorks').factory(
     'saveEmailFactory', [
         '$http',
-        function($http){
+        '_',
+        function($http, _) {
             return {
                 saveEmail: function(email, callback) {
                     var postData = JSON.stringify({
@@ -10,12 +11,12 @@ angular.module('MercedWorks').factory(
 
                     $http.post('api/save-email', postData)
                         .success(function(data) {
-                            console.log('saved email successfully');
-                            callback(true);
+                            console.log('receiving data from saving email:', data);
+                            callback(_.has(data, 'payload') ? data.payload : -1);
                         })
                         .error(function(error) {
                             console.log('Error saving email', 'error:', error);
-                            callback(false);
+                            callback(-1);
                         });
                 }
             };

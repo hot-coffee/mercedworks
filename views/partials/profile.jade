@@ -2,20 +2,20 @@
 div(id='banner_blurry')
     div(id='profile_container', ng-controller='profileController')
         a(id='back', href='#/', class='stretchLeft') x
-        div(id = 'day_container' class = "container")
-            div(class = "row")
-                div(class="col-xs-4 day", id='intro', ng-click='tabPressed(0)')
-                    img(src="images/icons/people.png")
+        div(id='day_container' class='container')
+            div(class='row')
+                div(class='{{getTabClass(0)}}', id='intro', ng-click='tabPressed(0)')
+                    img(src='images/icons/people.png')
                     h4 Intro
-                div(class='col-xs-4 day', id='work', ng-click='tabPressed(1)')
+                div(class='{{getTabClass(1)}}', id='work', ng-click='tabPressed(1)')
                     img(src='images/icons/work.png')
                     h4 Work
-                div(class='col-xs-4 day', id="plans", ng-click='tabPressed(2)')
+                div(class='{{getTabClass(2)}}', id='plans', ng-click='tabPressed(2)')
                     img(src='images/icons/plans.png')
                     h4 Plans
         div(class='row')
             div(class='col-md-6')
-                img(ng-src="{{picUrl}}" class="portrait")
+                img(ng-src='{{picUrl}}' class='portrait')
             div(class='col-md-6')
                 img(src='images/mwlogo.png', class='profile_logo')
                 h1 {{profile.firstName + ' ' + profile.lastName}}
