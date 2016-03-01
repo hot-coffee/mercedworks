@@ -103,11 +103,26 @@ body {
   margin: 0;
   padding: 0;
 }
-.disabled {
-  background: #9c9c9d;
-}
 .disabled:hover {
   background: #9c9c9d;
+}
+.enabled_intro:hover {
+  background: #e74c3c;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
+.enabled_work:hover {
+  background: #f39c12;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
+}
+.enabled_plans:hover {
+  background: #2980b9;
+  transition: .2s all;
+  -webkit-transition: .2s all;
+  -moz-transition: .2s all;
 }
 #banner_blurry {
   background: url('../images/mwbanner.jpg');
@@ -155,18 +170,6 @@ body {
 #banner_blurry #profile_container #day_container .row .day h4 {
   display: inline-block;
   margin-right: 5px;
-}
-#banner_blurry #profile_container #day_container .row #intro:hover {
-  background: #e74c3c;
-  transition: .2s all;
-  -webkit-transition: .2s all;
-  -moz-transition: .2s all;
-}
-#banner_blurry #profile_container #day_container .row #plans:hover {
-  background: #2980b9;
-  transition: .2s all;
-  -webkit-transition: .2s all;
-  -moz-transition: .2s all;
 }
 #banner_blurry #profile_container #back {
   color: white;
