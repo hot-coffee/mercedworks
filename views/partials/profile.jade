@@ -5,13 +5,13 @@ div(id='banner_blurry')
         div(id='day_container' class='container')
             div(class='row')
                 div(class='{{introTabClass}}', id='intro', ng-click='tabPressed(0)')
-                    img(src='images/icons/people.png')
+                    img(ng-src='{{introPicPath}}')
                     h4 Intro
                 div(class='{{workTabClass}}', id='work', ng-click='tabPressed(1)')
-                    img(src='images/icons/work.png')
+                    img(ng-src='{{workPicPath}}')
                     h4 Work
                 div(class='{{plansTabClass}}', id='plans', ng-click='tabPressed(2)')
-                    img(src='images/icons/plans.png')
+                    img(ng-src='{{plansPicPath}}')
                     h4 Plans
         div(class='row')
             div(class='col-md-6')
