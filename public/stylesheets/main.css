@@ -106,6 +106,9 @@ body {
 .disabled {
   background: #9c9c9d;
 }
+.disabled:hover {
+  background: #9c9c9d;
+}
 #banner_blurry {
   background: url('../images/mwbanner.jpg');
   background-position: center;

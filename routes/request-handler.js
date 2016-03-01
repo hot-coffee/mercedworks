@@ -133,29 +133,63 @@ function RequestHandler() {
             return;
         }
 
-        var payload = {
+        const payload1 = {
             database: config.columbianBeans.database,
-            collection: config.columbianBeans.collections.users,
-            payload: [{email: req.body.email}]
+            collection: config.columbianBeans.collections.users
         };
 
-        jsonSender(config.columbianBeans, 'post', payload, function (error, response) {
-            if (error) {
+        jsonSender(config.columbianBeans, 'get', payload1, function(error1, response) {
+            if (error1) {
                 logger.log(
-                    ['Failed to fetch profiles from:', config.columbianBeans.host],
+                    ['Failed to fetch emails from:', config.columbianBeans.host],
                     __filename,
                     true
                 );
-            } else {
-                logger.log(
-                    ['sent payload:', payload, 'received response:', response],
-                    __filename,
-                    false
-                );
             }
 
-            jsonResponse(res, error, error ? '' : 'success');
-        }.bind(this));
+            const users = response.payload;
+            var isRepeatEmail = false;
+            for (var i=0; i < users.length; i++) {
+                const user = users[i];
+                if (user.email.toLowerCase() === req.body.email.toLowerCase()) {
+                    isRepeatEmail = true;
+                    break;
+                }
+            }
+
+            if (isRepeatEmail) {
+                // send response for repeated email
+                jsonResponse(res, null, 2);
+                return;
+            }
+
+            const payload2 = {
+                database: config.columbianBeans.database,
+                collection: config.columbianBeans.collections.users,
+                payload: [{email: req.body.email}]
+            };
+
+            jsonSender(config.columbianBeans, 'post', payload2, function (error, response) {
+                if (error) {
+                    logger.log(
+                        ['Failed to fetch profiles from:', config.columbianBeans.host],
+                        __filename,
+                        true
+                    );
+                } else {
+                    logger.log(
+                        ['sent payload:', payload2, 'received response:', response],
+                        __filename,
+                        false
+                    );
+                }
+
+
+                jsonResponse(res, error, error ? null : 0);
+            });
+        });
+
+
 
     };
 }

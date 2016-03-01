@@ -16,6 +16,14 @@ angular.module('MercedWorks').controller(
                 $scope.picUrl = $scope.profile.pics[currentPageIndex];
             };
 
+            $scope.getTabClass = function (tabNumber) {
+                console.log('tab number entered:', tabNumber);
+                var className = 'col-xs-4 day';
+                className += (tabNumber <= $scope.profile.interviews.length - 1) ?
+                    '' : 'disabled';
+                return className;
+            };
+
             var init = function() {
                 profileFactory.getProfiles(function(error) {
                     if (error) {
