@@ -4,13 +4,13 @@ div(id='banner_blurry')
         a(id='back', href='#/', class='stretchLeft') x
         div(id='day_container' class='container')
             div(class='row')
-                div(class='{{getTabClass(0)}}', id='intro', ng-click='tabPressed(0)')
+                div(class='{{introTabClass}}', id='intro', ng-click='tabPressed(0)')
                     img(src='images/icons/people.png')
                     h4 Intro
-                div(class='{{getTabClass(1)}}', id='work', ng-click='tabPressed(1)')
+                div(class='{{workTabClass}}', id='work', ng-click='tabPressed(1)')
                     img(src='images/icons/work.png')
                     h4 Work
-                div(class='{{getTabClass(2)}}', id='plans', ng-click='tabPressed(2)')
+                div(class='{{plansTabClass}}', id='plans', ng-click='tabPressed(2)')
                     img(src='images/icons/plans.png')
                     h4 Plans
         div(class='row')

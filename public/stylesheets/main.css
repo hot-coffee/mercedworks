@@ -162,12 +162,6 @@ body {
   -webkit-transition: .2s all;
   -moz-transition: .2s all;
 }
-#banner_blurry #profile_container #day_container .row #work:hover {
-  background: #f39c12;
-  transition: .2s all;
-  -webkit-transition: .2s all;
-  -moz-transition: .2s all;
-}
 #banner_blurry #profile_container #day_container .row #plans:hover {
   background: #2980b9;
   transition: .2s all;
