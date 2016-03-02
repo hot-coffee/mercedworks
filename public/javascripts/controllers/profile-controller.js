@@ -6,8 +6,7 @@ angular.module('MercedWorks').controller(
         'profileFactory',
         '_',
         function($scope, $routeParams, profileFactory, _) {
-            var currentPageIndex = 0;
-
+            // scope variables
             $scope.introTabClass = 'col-xs-4 day enabled_intro';
             $scope.workTabClass = 'col-xs-4 day enabled_work';
             $scope.plansTabClass = 'col-xs-4 day enabled_plans';
@@ -15,6 +14,10 @@ angular.module('MercedWorks').controller(
             $scope.workPicPath = 'images/icons/work.png';
             $scope.plansPicPath = 'images/icons/plans.png';
 
+            // internal variables
+            var currentPageIndex = 0;
+
+            //scope methods
             $scope.tabPressed = function(value) {
                 if (value === currentPageIndex) {
                     return;
@@ -25,6 +28,7 @@ angular.module('MercedWorks').controller(
                 $scope.picUrl = $scope.profile.pics[currentPageIndex];
             };
 
+            // internal methods
             var setUpTabs = function() {
                 $scope.introTabClass = $scope.profile.interviews.length >= 1 ?
                     'col-xs-4 day enabled_intro' : 'col-xs-4 day disabled';

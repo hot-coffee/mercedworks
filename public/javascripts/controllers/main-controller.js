@@ -77,7 +77,9 @@ angular.module('MercedWorks').controller(
             };
 
             $scope.emailButtonPressed = function () {
-                if ($scope.emailValue.length > 0 && $scope.emailValue.indexOf('@') != -1) {
+                if ($scope.emailValue.length > 0 &&
+                    $scope.emailValue.indexOf('@') != -1 &&
+                    $scope.emailValue.indexOf('.') != -1) {
                     saveEmailFactory.saveEmail($scope.emailValue, function (result) {
                         if (result === 0) {
                             $scope.emailValue = '';
