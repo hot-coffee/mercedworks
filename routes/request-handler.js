@@ -169,8 +169,8 @@ function RequestHandler() {
                 payload: [{email: req.body.email}]
             };
 
-            jsonSender(config.columbianBeans, 'post', payload2, function (error, response) {
-                if (error) {
+            jsonSender(config.columbianBeans, 'post', payload2, function (error2, response2) {
+                if (error2) {
                     logger.log(
                         ['Failed to fetch profiles from:', config.columbianBeans.host],
                         __filename,
@@ -178,14 +178,13 @@ function RequestHandler() {
                     );
                 } else {
                     logger.log(
-                        ['sent payload:', payload2, 'received response:', response],
+                        ['sent payload:', payload2, 'received response:', response2],
                         __filename,
                         false
                     );
                 }
 
-
-                jsonResponse(res, error, error ? null : 0);
+                jsonResponse(res, error2, error2 ? null : 0);
             });
         });
 

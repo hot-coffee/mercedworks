@@ -14,6 +14,7 @@ angular.module('MercedWorks').factory(
 
                     $http.get('api/all-profiles')
                         .success(function(data) {
+                            console.log('profiles fetched');
                             this.profiles = data.payload;
                             callback(null);
                         }.bind(this))
