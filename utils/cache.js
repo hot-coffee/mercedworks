@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('underscore');
-var Logger = require('./logger');
+var Logger = require('gruew-logger');
 
 module.exports = {
     invalidateInterval: 3600*1000,
