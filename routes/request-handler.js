@@ -8,8 +8,6 @@ var config = require('./../utils/config');
 var uriParamParser = require('./../utils/uri-param-parser');
 var _ = require('underscore');
 var InstagramController = require('./../controllers/instagram-controller');
-var jsonFile = require('jsonfile');
-var md5Hasher = require('./../utils/md5-hasher');
 
 
 function RequestHandler() {
@@ -82,19 +80,29 @@ function RequestHandler() {
             if (response && response.payload) {
                 logger.log(['all profiles client response', response.payload], __filename, false);
                 var profiles = [];
-                _.each(response.payload, function (profile) {
+                const now = new Date().getTime();
+                for (var i=0; i < response.payload.length; i++) {
+                    const profile = response.payload[i];
+                    console.log('profile date:', Date.parse(profile.date));
+                    console.log('now:', now);
+                    if (Date.parse(profile.date) > now) {
+                        continue;
+                    }
+
                     const picUrl = config.client.s3BaseUrl + profile.picFolder;
                     var pics = [];
-                    for (var i = 0; i < profile.interviews.length; i++) {
-                        pics.push(picUrl + '/' + i.toString() + '.jpeg');
+                    for (var j = 0; j < profile.interviews.length; j++) {
+                        pics.push(picUrl + '/' + j.toString() + '.jpeg');
                     }
 
                     profile['pics'] = pics;
                     profiles.push(profile);
-                });
+                }
 
                 profiles.sort(function(profile1, profile2) {
-                    return profile1.interviewId < profile2.interviewId;
+                    const date1 = Date.parse(profile1.date);
+                    const date2 = Date.parse(profile2.date);
+                    return date1 < date2;
                 });
 
                 jsonResponse(res, null, profiles);
@@ -187,9 +195,6 @@ function RequestHandler() {
                 jsonResponse(res, error2, error2 ? null : 0);
             });
         });
-
-
-
     };
 }
 
