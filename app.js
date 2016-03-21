@@ -9,15 +9,11 @@ var cors = require('cors');
 var debug = require('debug')('mercedworks:server');
 var RequestHandler = require('./routes/request-handler');
 var config = require('./utils/config');
-var InstagramController = require('./controllers/instagram-controller');
-var nameHashPrinter = require('./utils/name-hash-printer');
-var md5Hasher = require('./utils/md5-hasher');
-var userCreator = require('./utils/user-creator');
-
 
 function App() {
     this.run = function () {
         if (process.argv.length > 2 && process.argv[2] === 'fetchmedia') {
+            const InstagramController = require('./controllers/instagram-controller');
             var igController = new InstagramController();
             igController.fetchRecentMedia(function (error, media) {
                 if (error) {
@@ -31,8 +27,10 @@ function App() {
             const firstName = 'melissa';
             const lastName = 'eisner';
             console.log(firstName, lastName);
+            const md5Hasher = require('./utils/md5-hasher');
             console.log(md5Hasher.hashName(firstName, lastName));
         } else if (process.argv.length > 2 && process.argv[2] === 'createusers') {
+            const userCreator = require('./utils/user-creator');
             userCreator();
         } else {
             this.startServer();

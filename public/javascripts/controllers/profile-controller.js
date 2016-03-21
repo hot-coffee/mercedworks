@@ -60,7 +60,7 @@ angular.module('MercedWorks').controller(
                 var interviews = $scope.profile.interviews;
                 if (interviews.length > index) {
                     var now = new Date().getTime();
-                    date = Date.parse(interviews[index].releaseDate);
+                    var date = Date.parse(interviews[index].releaseDate);
                     return now > date;
                 }
 

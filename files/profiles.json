@@ -134,5 +134,26 @@
         "interview": "Thad and Dan compliment each other perfectly - Dan the pragmatist, and Thad the dreamer. Together, they make a formidable duo on the quest for the perfect pizza. Though only a few weeks old, Thad and Dan have big dreams for their small shop. Every slice is another step toward their @littleovenmerced becoming a beacon of good eats in Merced. "
       }
     ]
+  },
+  {
+    "firstName": "Dan",
+    "lastName": "Alcorn",
+    "occupation": "Program Coordinator",
+    "business": "Samaschool",
+    "date": "2016-03-21T08:00:00Z",
+    "interviews": [
+      {
+        "releaseDate": "2016-03-21T08:00:00Z",
+        "interview": "The All-American story. Homegrown in Merced, stiff wings spreading loose to leave the nest and see the world. Now grown, @dan.alcorn came back on his own wind to build a nest of his own in Merced. Not content to simply 'be', he'd much rather 'do', and thus finds himself spearheading projects taking him back to @samaschool and proving @mercedworks."
+      },
+      {
+        "releaseDate": "2016-03-23T08:00:00Z",
+        "interview": "A hipster carpenter in a previous life, @dan.alcorn kept the flannel but did away with the beard and embraced technology in its stead. Everything he does conveys a message of re-shaping the narrative - that simply because it is, doesn't mean that’s the way it has to be. From community advocacy and education to graphic design and photography, Dan has all the right tools edit the status quo."
+      },
+      {
+        "releaseDate": "2016-03-25T08:00:00Z",
+        "interview": "The timeless question; how much is 'enough'? For a perfectionist like @dan.alcorn, he may never have an answer to this. Even so, he strives to create in the face of this dilemma. As he sets his new nest with a foundation of everywhere he’s been and everything he's learned during his travels, he looks forward to building a family and re-creating the Merced he once knew as a child off R and 21st."
+      }
+    ]
   }
 ]
