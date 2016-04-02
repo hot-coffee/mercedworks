@@ -5,8 +5,18 @@ const config = require('./../utils/config');
 const logger = require('gruew-logger');
 const jsonFile = require('jsonfile');
 const _ = require('underscore');
-const constructUri = require('./../utils/construct-uri');
+const instagramUriCreator = require('./../utils/instagram-uri-creator');
 
+
+var getParams = function() {
+    const params = jsonFile.readFileSync(config.filePaths.instagramParamsPath);
+    if (params && _.has(params, 'accessToken') && _.has(params, 'code')) {
+        return params;
+    }
+
+    logger.log(['Could not read params', config.filePaths.instagramParamsPath], __filename, true);
+    return null;
+};
 
 module.exports.getAccessToken = function (instagramCode, callback) {
     const params = queryString.stringify({
@@ -67,17 +77,46 @@ module.exports.getAccessToken = function (instagramCode, callback) {
     req.end();
 };
 
-module.exports.getParams = function() {
-    const params = jsonFile.readFileSync(config.filePaths.instagramParamsPath);
-    if (params && _.has(params, 'accessToken') && _.has(params, 'code')) {
-        return params;
+module.exports.getHashTagMedia = function(callback) {
+    const instagramParams = getParams();
+    if (!instagramParams || !_.has(instagramParams, 'accessToken') || !_.has(instagramParams, 'code')) {
+        const message = 'could not get hash tag media. No params present';
+        logger.log([message], __filename, true);
+        callback(new Error(message), null);
+        return;
     }
 
-    logger.log(['Could not read params', config.filePaths.instagramParamsPath], __filename, true);
-    return null;
-};
+    const params = {access_token: instagramParams.accessToken};
+    const options = {
+        host: config.apiInfo.instagram.baseUri,
+        port: config.apiInfo.instagram.port,
+        path: instagramUriCreator(params),
+        method: 'GET'
+    };
 
-module.exports.getHashTagMedia = function() {
-    
-};
+    var req = https.request(options, function(res) {
+        var data = '';
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            logger.log(
+                ['Received chunk of data from', config.apiInfo.instagram.baseUri],
+                __filename,
+                false
+            );
 
+            data += chunk;
+        });
+
+        res.on('end', function () {
+            const media = JSON.parse(data);
+            console.log('media:', media);
+            callback(null, 'parse some media!');
+        });
+    });
+
+    req.on('error', function(error) {
+        callback(error, null);
+    });
+
+    req.end();
+};
