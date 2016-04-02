@@ -85,13 +85,17 @@ function App() {
         });
 
         var requestHandler = new RequestHandler();
+
+        // gets
         app.get('/', requestHandler.index.bind(requestHandler));
         app.get('/partials/:name', requestHandler.partials.bind(requestHandler));
         app.get('/got-instagram-token', requestHandler.index.bind(requestHandler));
         app.get('/api/all-profiles', requestHandler.allProfiles.bind(requestHandler));
         app.get('/api/instagram-redirect-url', requestHandler.instagramRedirectUrl.bind(requestHandler));
         app.get('/fetch-instagram-media', requestHandler.fetchInstagramMedia.bind(requestHandler));
+        app.get('/api/profiles', requestHandler.profiles.bind(requestHandler));
 
+        // posts
         app.post('/api/save-email', requestHandler.saveEmail.bind(requestHandler));
 
         var port = config.port;

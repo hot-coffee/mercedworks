@@ -8,6 +8,7 @@ var config = require('./../utils/config');
 var uriParamParser = require('./../utils/uri-param-parser');
 var _ = require('underscore');
 var InstagramController = require('./../controllers/instagram-controller');
+var jsonFile = require('jsonfile');
 
 
 function RequestHandler() {
@@ -195,6 +196,25 @@ function RequestHandler() {
                 jsonResponse(res, error2, error2 ? null : 0);
             });
         });
+    };
+
+    this.profiles = function (req, res, next) {
+        var profiles = jsonFile.readFileSync(config.filePaths.profiles);
+        console.log('profiles:', profiles);
+        var modifiedProfiles = [];
+        _.each(profiles, function(profile) {
+            const picUrl = config.client.s3BaseUrl + profile.picFolder;
+            var pics = [];
+            _.each(profile.pics, function (pic) {
+                pics.push(picUrl + '/' + pic);
+            });
+
+            profile.profilePic = picUrl + '/' + profile.profilePic;
+            profile.pics = pics;
+            modifiedProfiles.push(profile);
+        });
+
+        jsonResponse(res, null, modifiedProfiles);
     };
 }
 
