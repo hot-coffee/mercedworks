@@ -26,8 +26,6 @@ module.exports = function(req, res, callback) {
                     return;
                 }
 
-                console.log('got profiles:', response.payload);
-
                 profiles = response.payload;
                 callback();
             }
@@ -50,8 +48,6 @@ module.exports = function(req, res, callback) {
                     return;
                 }
 
-                console.log('hash tag profiles:', response.payload);
-
                 hashTagProfiles = response.payload;
                 callback();
             }
@@ -69,7 +65,7 @@ module.exports = function(req, res, callback) {
             return;
         }
 
-        console.log('in aysnc callback profiles:', profiles, 'hash tag profiles', hashTagProfiles);
+        console.log('in aysnc callback # profiles:', profiles.length, '# hash tag profiles', hashTagProfiles.length);
         callback(error, profiles, hashTagProfiles);
     });
 };

@@ -52,7 +52,7 @@ module.exports = {
             profiles: 'profiles',
             parameters: 'parameters',
             users: 'users',
-            hashTagProfiles: 'hash-tag-profiles'
+            hashTagProfiles: 'hashTagProfiles'
         },
         hostAndPort: function () {
             return this.host + ':' + this.port;

@@ -203,25 +203,6 @@ function RequestHandler() {
     };
 
     this.profiles = function (req, res, next) {
-        //var profiles = jsonFile.readFileSync(config.filePaths.profiles);
-        //console.log('profiles:', profiles);
-        //var modifiedProfiles = [];
-        //_.each(profiles, function(profile) {
-        //    const picUrl = config.client.s3BaseUrl + profile.picFolder;
-        //    var pics = [];
-        //    _.each(profile.pics, function (pic) {
-        //        pics.push(picUrl + '/' + pic);
-        //    });
-        //
-        //    profile.profilePic = picUrl + '/' + profile.profilePic;
-        //    profile.pics = pics;
-        //    modifiedProfiles.push(profile);
-        //});
-        //
-        //jsonResponse(res, null, modifiedProfiles);
-
-        console.log('getting profiles');
-
         requestProfilesHelper(req, res, function(error, profiles, hashTagProfiles) {
             if (error) {
                 jsonResponse(res, error, null);

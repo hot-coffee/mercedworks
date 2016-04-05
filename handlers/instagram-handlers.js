@@ -29,15 +29,16 @@ var parseHashData = function(incomingData) {
 
     var hashedData = [];
     _.each(payload.data, function(datum) {
-         hashedData.push({
-             link: datum.link,
-             pic: datum.images.standard_resolution.url,
-             caption: datum.caption.text,
-             userName: datum.user.username,
-             userPic: datum.user.profile_picture,
-             userId: datum.user.id,
-             userFullName: datum.user.full_name
-         });
+        hashedData.push({
+            link: datum.link,
+            pic: datum.images.standard_resolution.url,
+            caption: datum.caption.text,
+            userName: datum.user.username,
+            userPic: datum.user.profile_picture,
+            userId: datum.user.id,
+            userFullName: datum.user.full_name,
+            type: 'instagram'
+        });
     });
 
     return hashedData;
@@ -54,7 +55,9 @@ var saveHashedData = function(hashedData, callback) {
                 return;
             }
 
-            console.log('response is:', response);
+            _.each(hashedData, function(datum) {
+                datum.type = 'instagram';
+            });
 
             var uniqueData = [];
             var dbData = response && response.payload && response.payload.length > 0 ? response.payload : [];
