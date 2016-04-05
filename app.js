@@ -10,6 +10,8 @@ var debug = require('debug')('mercedworks:server');
 var RequestHandler = require('./routes/request-handler');
 var config = require('./utils/config');
 
+
+
 function App() {
     this.run = function () {
         if (process.argv.length > 2 && process.argv[2] === 'fetchmedia') {
@@ -32,6 +34,12 @@ function App() {
         } else if (process.argv.length > 2 && process.argv[2] === 'createusers') {
             const userCreator = require('./utils/user-creator');
             userCreator();
+        } else if (process.argv.length > 2 && process.argv[2] === 'mediafetch') {
+            var instagramFetchController = require('./controllers/instagram-fetch-controller');
+            jsonFile = require('jsonfile');
+
+            params = jsonFile.readFileSync(config.filePaths.instagramParamsPath);
+            instagramFetchController(params.code);
         } else {
             this.startServer();
         }
