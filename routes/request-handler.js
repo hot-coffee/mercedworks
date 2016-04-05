@@ -9,6 +9,9 @@ var uriParamParser = require('./../utils/uri-param-parser');
 var _ = require('underscore');
 var InstagramController = require('./../controllers/instagram-controller');
 var jsonFile = require('jsonfile');
+var instagramFetchController = require('./../controllers/instagram-fetch-controller');
+var requestProfilesHelper = require('./../handlers/request-profiles-helper');
+var profileCreator = require('./../models/profile-creator');
 
 
 function RequestHandler() {
@@ -48,13 +51,15 @@ function RequestHandler() {
             logger.log(['no access token to save'], __filename, true);
             return;
         }
-        
-        var instagramController = new InstagramController(params.code);
-        instagramController.fetchAccessToken(function (success) {
-            var message = success ? 'Successfully fetched token from instagram' :
-                'Failed to fetch token from instagram';
-            logger.log([message], __filename, !success);
-        });
+
+        instagramFetchController(params.code);
+
+        //var instagramController = new InstagramController(params.code);
+        //instagramController.fetchAccessToken(function (success) {
+        //    var message = success ? 'Successfully fetched token from instagram' :
+        //        'Failed to fetch token from instagram';
+        //    logger.log([message], __filename, !success);
+        //});
     };
 
     this.allProfiles = function(req, res, next) {
@@ -96,7 +101,7 @@ function RequestHandler() {
                         pics.push(picUrl + '/' + j.toString() + '.jpeg');
                     }
 
-                    profile['pics'] = pics;
+                    profile.pics = pics;
                     profiles.push(profile);
                 }
 
@@ -167,7 +172,6 @@ function RequestHandler() {
             }
 
             if (isRepeatEmail) {
-                // send response for repeated email
                 jsonResponse(res, null, 2);
                 return;
             }
@@ -199,22 +203,51 @@ function RequestHandler() {
     };
 
     this.profiles = function (req, res, next) {
-        var profiles = jsonFile.readFileSync(config.filePaths.profiles);
-        console.log('profiles:', profiles);
-        var modifiedProfiles = [];
-        _.each(profiles, function(profile) {
-            const picUrl = config.client.s3BaseUrl + profile.picFolder;
-            var pics = [];
-            _.each(profile.pics, function (pic) {
-                pics.push(picUrl + '/' + pic);
+        //var profiles = jsonFile.readFileSync(config.filePaths.profiles);
+        //console.log('profiles:', profiles);
+        //var modifiedProfiles = [];
+        //_.each(profiles, function(profile) {
+        //    const picUrl = config.client.s3BaseUrl + profile.picFolder;
+        //    var pics = [];
+        //    _.each(profile.pics, function (pic) {
+        //        pics.push(picUrl + '/' + pic);
+        //    });
+        //
+        //    profile.profilePic = picUrl + '/' + profile.profilePic;
+        //    profile.pics = pics;
+        //    modifiedProfiles.push(profile);
+        //});
+        //
+        //jsonResponse(res, null, modifiedProfiles);
+
+        console.log('getting profiles');
+
+        requestProfilesHelper(req, res, function(error, profiles, hashTagProfiles) {
+            if (error) {
+                jsonResponse(res, error, null);
+                return;
+            }
+
+            var allProfiles = [];
+            _.each(profiles, function(profile) {
+                const picUrl = config.client.s3BaseUrl + profile.picFolder;
+                var pics = [];
+                for (var i = 0; i < profile.interviews.length; i++) {
+                    pics.push(picUrl + '/' + i.toString() + '.jpeg');
+                }
+
+                profile.pics = pics;
+                profile.type = 'mercedworks';
+                allProfiles.push(profileCreator(profile));
             });
 
-            profile.profilePic = picUrl + '/' + profile.profilePic;
-            profile.pics = pics;
-            modifiedProfiles.push(profile);
-        });
+            _.each(hashTagProfiles, function(profile) {
+                allProfiles.push(profileCreator(profile));
+            });
 
-        jsonResponse(res, null, modifiedProfiles);
+            console.log('profiles:', allProfiles);
+            jsonResponse(res, null, allProfiles)
+        });
     };
 }
 

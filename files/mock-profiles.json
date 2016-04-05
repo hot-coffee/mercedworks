@@ -1,57 +1,57 @@
 [
   {
-    "type": "blurb",
+    "type": "instagram",
     "picFolder": "ece402993686a0e9b533c0203a7c4f1b",
     "pics": [
       "0.jpeg"
     ],
-    "handle": "@andre1226",
+    "username": "@andre1226",
     "firstName": null,
     "lastName": null,
     "profilePic": "0.jpeg"
   },
   {
-    "type": "story",
+    "type": "mercedworks",
     "picFolder": "2d4ca295be0e279be3afcf498c58df3a",
     "pics": [
       "0.jpeg",
       "1.jpeg",
       "2.jpeg"
     ],
-    "handle": null,
+    "username": null,
     "firstName": "Britney",
     "lastName": "Oakes",
     "profilePic": "0.jpeg"
   },
   {
-    "type": "blurb",
+    "type": "instagram",
     "picFolder": "6ae0cc982940491f604f1422e2c6b6ad",
     "pics": [
       "0.jpeg"
     ],
-    "handle": "@steven.duval",
+    "username": "@steven.duval",
     "firstName": null,
     "lastName": null,
     "profilePic": "0.jpeg"
   },
   {
-    "type": "blurb",
+    "type": "instagram",
     "picFolder": "1d90d2e4cd07fa8cee860169bd8e6e0c",
     "pics": [
       "0.jpeg"
     ],
-    "handle": "@hansen.the.terrible",
+    "username": "@hansen.the.terrible",
     "firstName": null,
     "lastName": null,
     "profilePic": "0.jpeg"
   },
   {
-    "type": "blurb",
+    "type": "instagram",
     "picFolder": "484ce511070c3be2ebe8f7390c5f2927",
     "pics": [
       "0.jpeg"
     ],
-    "handle": "@Tanisha",
+    "username": "@Tanisha",
     "firstName": null,
     "lastName": null,
     "profilePic": "0.jpeg"

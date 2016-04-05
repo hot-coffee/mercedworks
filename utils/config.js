@@ -51,7 +51,8 @@ module.exports = {
         collections: {
             profiles: 'profiles',
             parameters: 'parameters',
-            users: 'users'
+            users: 'users',
+            hashTagProfiles: 'hash-tag-profiles'
         },
         hostAndPort: function () {
             return this.host + ':' + this.port;
