@@ -166,7 +166,7 @@ module.exports = {
             'stylesheets/animate.css'
         ],
 
-        tagCreator: function (tagType, tagObject) {
+        tagCreator: function(tagType, tagObject) {
             var tag = tagType + ' ';
             var keys = _.keys(tagObject);
             var counter = 0;

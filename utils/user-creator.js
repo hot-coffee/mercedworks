@@ -13,7 +13,7 @@ module.exports = function () {
     var usersFromFile = jsonFile.readFileSync(path.join(__dirname, '../files/profiles.json'));
     var users = [];
     _.each(usersFromFile, function (userFromFile) {
-        userFromFile['picFolder'] = md5Hasher.hashName(
+        userFromFile.picFolder = md5Hasher.hashName(
             userFromFile.firstName.toLowerCase(),
             userFromFile.lastName.toLowerCase()
         );
