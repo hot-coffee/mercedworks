@@ -12,7 +12,7 @@ angular.module('MercedWorks').factory(
                         return;
                     }
 
-                    $http.get('api/all-profiles')
+                    $http.get('api/profiles')
                         .success(function(data) {
                             console.log('profiles fetched');
                             this.profiles = data.payload;
