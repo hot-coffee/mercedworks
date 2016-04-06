@@ -13,71 +13,17 @@ div(class='banner')
 div(class="container")
     div(class="row")
 
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
+        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont' ng-repeat = 'item in profiles')
             div(class='ac_photo_cont')
-                div(class='photo')
+                img(ng-src = '{{item.profilePic}}' class = 'photo')
                 div(class='photo_info_container')
                     div(class='author_container')
                         div(class='author_icon')
-                            p @dan.alcorn
+                            p {{item.handle}}
                 div(class='photo_info')
 
 
-        div(class='col-md-6 col-sm-8 col-xs-12 article_cont')
-            div(class='ac_article_cont')
-                div(class='article_photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            &nbsp;
-                        div(class='photo_info')
-
-
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
-            div(class='ac_photo_cont')
-                div(class='photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p @dan.alcorn
-                div(class='photo_info')
-
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
-            div(class='ac_photo_cont')
-                div(class='photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p @dan.alcorn
-                div(class='photo_info')
-
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
-            div(class='ac_photo_cont')
-                div(class='photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p @dan.alcorn
-                div(class='photo_info')
-
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
-            div(class='ac_photo_cont')
-                div(class='photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p @dan.alcorn
-                div(class='photo_info')
-
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont')
-            div(class='ac_photo_cont')
-                div(class='photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p @dan.alcorn
-                div(class='photo_info')
-
+    
 
 
     

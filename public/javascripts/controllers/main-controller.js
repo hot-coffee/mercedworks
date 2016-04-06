@@ -105,6 +105,8 @@ angular.module('MercedWorks').controller(
                 }
 
                 $scope.profiles = profileFactory.profiles;
+
+                if($scope.profiles.)
             });
         }
     ]
