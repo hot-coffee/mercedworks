@@ -209,7 +209,8 @@ function RequestHandler() {
                 return;
             }
 
-            var allProfiles = [];
+            var mercedWorksProfiles = [];
+            var socialMediaProfiles = [];
             _.each(profiles, function(profile) {
                 const picUrl = config.client.s3BaseUrl + profile.picFolder;
                 var pics = [];
@@ -219,15 +220,21 @@ function RequestHandler() {
 
                 profile.pics = pics;
                 profile.type = 'mercedworks';
-                allProfiles.push(profileCreator(profile));
+                profile.userPic = pics[0];
+                mercedWorksProfiles.push(profileCreator(profile));
             });
+
 
             _.each(hashTagProfiles, function(profile) {
-                allProfiles.push(profileCreator(profile));
+                socialMediaProfiles.push(profileCreator(profile));
             });
 
-            console.log('profiles:', allProfiles);
-            jsonResponse(res, null, allProfiles)
+            var payload = {
+                mercedWorks: mercedWorksProfiles,
+                socialMedia: socialMediaProfiles
+            };
+
+            jsonResponse(res, null, payload);
         });
     };
 }

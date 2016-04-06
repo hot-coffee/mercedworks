@@ -25,12 +25,6 @@ function App() {
 
                 logger.log(['Got media:', media], __filename, false);
             });
-        } else if (process.argv.length > 2 && process.argv[2] === 'hash') {
-            const firstName = 'melissa';
-            const lastName = 'eisner';
-            console.log(firstName, lastName);
-            const md5Hasher = require('./utils/md5-hasher');
-            console.log(md5Hasher.hashName(firstName, lastName));
         } else if (process.argv.length > 2 && process.argv[2] === 'createusers') {
             const userCreator = require('./utils/user-creator');
             userCreator();
