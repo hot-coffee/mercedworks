@@ -4,18 +4,19 @@ const _ = require('underscore');
 
 
 module.exports = function(profileData) {
-    var firstName = _.has(profileData, 'firstName') ? profileData.firstName : null;
-    var lastName = _.has(profileData, 'lastName') ? profileData.lastName : null;
-    var occupation = _.has(profileData, 'occupation') ? profileData.occupation : null;
-    var type = _.has(profileData, 'type') ? profileData.type : null;
-    var link = _.has(profileData, 'link') ? profileData.link : null;
-    var pic = _.has(profileData, 'pic') ? profileData.pic : null;
-    var userPic = _.has(profileData, 'userPic') ? profileData.userPic : null;
-    var caption = _.has(profileData, 'caption') ? profileData.caption : null;
-    var interviews = _.has(profileData, 'interviews') ? profileData.interviews : null;
-    var business = _.has(profileData, 'business') ? profileData.business : null;
-    var date = _.has(profileData, 'date') ? profileData.date : null;
-    var pics = _.has(profileData, 'pics') ? profileData.pics : null;
+    const firstName = _.has(profileData, 'firstName') ? profileData.firstName : null;
+    const lastName = _.has(profileData, 'lastName') ? profileData.lastName : null;
+    const occupation = _.has(profileData, 'occupation') ? profileData.occupation : null;
+    const type = _.has(profileData, 'type') ? profileData.type : null;
+    const link = _.has(profileData, 'link') ? profileData.link : null;
+    const pic = _.has(profileData, 'pic') ? profileData.pic : null;
+    const userPic = _.has(profileData, 'userPic') ? profileData.userPic : null;
+    const caption = _.has(profileData, 'caption') ? profileData.caption : null;
+    const interviews = _.has(profileData, 'interviews') ? profileData.interviews : null;
+    const business = _.has(profileData, 'business') ? profileData.business : null;
+    const date = _.has(profileData, 'date') ? profileData.date : null;
+    const pics = _.has(profileData, 'pics') ? profileData.pics : null;
+    const userName = _.has(profileData, 'userName') ? profileData.userName : null;
 
     return {
         firstName: firstName,
@@ -29,6 +30,7 @@ module.exports = function(profileData) {
         interviews: interviews,
         business: business,
         date: date,
-        pics: pics
+        pics: pics,
+        userName: userName
     };
 };

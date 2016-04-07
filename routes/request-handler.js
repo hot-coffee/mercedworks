@@ -224,7 +224,6 @@ function RequestHandler() {
                 mercedWorksProfiles.push(profileCreator(profile));
             });
 
-
             _.each(hashTagProfiles, function(profile) {
                 socialMediaProfiles.push(profileCreator(profile));
             });
