@@ -1,4 +1,4 @@
-div(class='banner')
+//div(class='banner')
     div(id='banner_logo_container')
         img(src='images/mwlogo.png' id = "mwlogo")
         div(id='banner_icon_container')
@@ -9,18 +9,29 @@ div(class='banner')
             div(class='icon')
                 &nbsp;
 
-
 div(class="container")
     div(class="row")
 
-        div(class='col-md-3 col-sm-4 col-xs-6 photo_cont' ng-repeat = 'item in profiles')
-            div(class='ac_photo_cont')
-                img(ng-src = '{{item.profilePic}}' class = 'photo')
-                div(class='photo_info_container')
-                    div(class='author_container')
-                        div(class='author_icon')
-                            p {{item.handle}}
-                div(class='photo_info')
+
+
+        div(class='outer_cont')
+            div(class='col-md-3 col-sm-6 col-xs-6 photo_cont' ng-repeat = 'item in instagramProfiles | limitTo: 6')
+                div(class='ac_photo_cont')
+                    img(ng-src = '{{item.pic}}' class = 'photo')
+                    div(class='photo_info_container')
+                        div(class='author_container')
+                            img(ng-src='{{item.userPic}}' class = 'author_icon')
+                            a(href='{{item.link}}')
+                                p @{{item.userName}}
+                            div(class='type_icon')
+                                
+
+
+
+
+
+      
+        
 
 
     
