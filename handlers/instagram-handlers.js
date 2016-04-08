@@ -21,6 +21,7 @@ var getParams = function() {
 };
 
 var parseHashData = function(incomingData) {
+    console.log(incomingData);;
     var payload = JSON.parse(incomingData);
     if (!_.has(payload, 'data')) {
         logger.log(['payload does not have data array'], __filename, true);
