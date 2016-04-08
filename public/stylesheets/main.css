@@ -6,10 +6,10 @@
   background: url('../images/mwbanner.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 225px;
+  height: 235px;
 }
 .banner #banner_logo_container {
-  width: 200px;
+  width: 250px;
   height: inherit;
   display: block;
   margin: auto;
@@ -24,7 +24,7 @@
   background: #8e44ad;
   height: 30px;
   width: 30px;
-  margin: 15px 10px 20px 10px;
+  margin: 25px 10px 20px 10px;
   display: inline-block;
   border-radius: 9999px;
 }
@@ -35,51 +35,66 @@
   margin: 10px 0 10px 0;
   padding: 0;
 }
+.container .row .photo_cont a {
+  text-decoration: none;
+  color: black;
+}
 .container .row .photo_cont .ac_photo_cont {
   border: 1.5px solid black;
   width: 95%;
   display: block;
   margin: 0 auto;
+  overflow: hidden;
+  background: white;
 }
 .container .row .photo_cont .ac_photo_cont .photo {
   background: #666666;
-  height: 200px;
   width: 95%;
   display: block;
   margin: 5px auto 5px auto;
 }
 .container .row .photo_cont .ac_photo_cont .photo_info_container .author_container {
-  width: 125px;
+  overflow: hidden;
+  width: 100%;
 }
 .container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .author_icon {
   background: #8e44ad;
   width: 25px;
   height: 25px;
   border-radius: 9999px;
-  margin: 8px;
+  margin: 8px 2px 8px 8px;
 }
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .author_icon p {
-  padding: 4px;
-  width: 80px;
-  margin-left: 25px;
+.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container p {
+  display: inline;
+  margin: 0;
+  padding: 0;
   font-size: 12px;
+}
+.container .row .photo_cont .ac_photo_cont .photo_info {
+  border: 2px solid black;
+  width: 30px;
 }
 .container .row .article_cont {
   margin: 10px 0 10px 0;
-  padding: 0;
+  padding: 35px 0 25px;
 }
 .container .row .article_cont .ac_article_cont {
   border: 1.5px solid black;
-  width: 97%;
+  width: 98%;
   display: block;
   margin: 0 auto;
+  background: white;
 }
-.container .row .article_cont .ac_article_cont .article_photo {
-  background: #666666;
-  height: 200px;
-  width: 97%;
-  display: block;
-  margin: 5px auto 5px auto;
+.container .row .article_cont .ac_article_cont .row .at_pic_cont {
+  margin: 5px;
+}
+.container .row .article_cont .ac_article_cont .row .at_pic_cont .at_pic {
+  margin: 0;
+  padding: 0;
+}
+.container .row .article_cont .ac_article_cont .row .at_pic_cont .at_pic .article_pic {
+  padding: 0;
+  width: 100%;
 }
 .container .row .article_cont .ac_article_cont .photo_info_container .author_container {
   width: 125px;
@@ -89,7 +104,7 @@
   width: 25px;
   height: 25px;
   border-radius: 9999px;
-  margin: 8px 10px 8px 10px;
+  margin: 10px -8px;
 }
 .footer {
   height: 50px;
@@ -104,5 +119,24 @@
   }
   .container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .author_icon {
     margin: 0 10px 0 10px;
+  }
+  .container .row .article_cont {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 595px) {
+  .container .row .photo_cont .photo_info_container .author_container .capt {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 975px) {
+  .container .row .article_cont {
+    padding: 0;
+  }
+}
+@media screen and (min-width 1552px) {
+  .container .row .article_cont {
+    border: 2px solid black;
+    background: blue;
   }
 }
