@@ -81,10 +81,9 @@ function RequestHandler() {
                 logger.log(['all profiles client response', response.payload], __filename, false);
                 var profiles = [];
                 const now = new Date().getTime();
-                for (var i=0; i < response.payload.length; i++) {
+                var i;
+                for (i = 0; i < response.payload.length; i++) {
                     const profile = response.payload[i];
-                    console.log('profile date:', Date.parse(profile.date));
-                    console.log('now:', now);
                     if (Date.parse(profile.date) > now) {
                         continue;
                     }
@@ -99,11 +98,32 @@ function RequestHandler() {
                     profiles.push(profile);
                 }
 
-                profiles.sort(function(profile1, profile2) {
-                    const date1 = Date.parse(profile1.date);
-                    const date2 = Date.parse(profile2.date);
-                    return date1 < date2;
-                });
+                // for some reason this build in sort function is failing.
+                // should probably figure out why because the sorting method
+                // implemented below is hella ugly...and n^2...ahhhhh
+                //profiles.sort(function(profile1, profile2) {
+                //    const date1 = Date.parse(profile1.date);
+                //    const date2 = Date.parse(profile2.date);
+                //    return date1 < date2;
+                //});
+
+                for (i = 0; i < profiles.length - 1; i++) {
+                    var target = i;
+                    j = i + 1;
+                    while (j < profiles.length) {
+                        if (Date.parse(profiles[target].date) < Date.parse(profiles[j].date)) {
+                            target = j;
+                        }
+
+                        j++;
+                    }
+
+                    if (target !== i) {
+                        var temp = profiles[i];
+                        profiles[i] = profiles[target];
+                        profiles[target] = temp;
+                    }
+                }
 
                 jsonResponse(res, null, profiles);
             } else {
