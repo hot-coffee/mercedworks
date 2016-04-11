@@ -79,9 +79,10 @@ function RequestHandler() {
 
             if (response && response.payload) {
                 logger.log(['all profiles client response', response.payload], __filename, false);
-                var profiles = [];
                 const now = new Date().getTime();
+                var profiles = [];
                 var i;
+                var j;
                 for (i = 0; i < response.payload.length; i++) {
                     const profile = response.payload[i];
                     if (Date.parse(profile.date) > now) {
@@ -90,7 +91,7 @@ function RequestHandler() {
 
                     const picUrl = config.client.s3BaseUrl + profile.picFolder;
                     var pics = [];
-                    for (var j = 0; j < profile.interviews.length; j++) {
+                    for (j = 0; j < profile.interviews.length; j++) {
                         pics.push(picUrl + '/' + j.toString() + '.jpeg');
                     }
 
