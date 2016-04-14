@@ -8,6 +8,8 @@
 body{
 }
 
+//BANNER STYLINGS
+
 .banner{
 	background: url('../images/mwbanner.jpg');
 	background-attachment: fixed;
@@ -27,26 +29,19 @@ body{
 		}
 	}
 	#banner_icon_container{
-		.icon{
-			background: @icon_back;
-			height: 30px;
-			width: 30px;
-			margin: 25px 10px 20px 10px;
-			display: inline-block;
-			border-radius: 9999px;
+		.soc_icon{
+			margin: 10px 5px;
 		}
 	}
 }
+
+//CONTAINER STYLINGS
 
 .container{
 	width: 100%;
 	.row{
 		//border: 2px solid black;
 		.photo_cont{
-			a{
-				text-decoration: none;
-				color: black;
-			}
 			//border: 1px solid black;
 			margin: 10px 0 10px 0;
 			padding: 0;
@@ -69,11 +64,11 @@ body{
 						overflow:hidden;
 						width: 100%;
 						.author_icon{
-							background: @icon_back;
-							width: 25px;
-							height: 25px;
+							width: 35px;
+							height: 35px;
 							border-radius: 9999px;
 							margin: 8px 2px 8px 8px;
+							display: inline;
 						}
 						p{
 								//border: 2px solid black;
@@ -83,55 +78,15 @@ body{
 								font-size: 12px;
 						}
 						.type_icon{
-							
-						}
-					}
-				}
-				.photo_info{
-						border: 2px solid black;
-						width: 30px;
-					}
-			}
-		}
-
-
-		.article_cont{
-			//border: 1px solid black;
-			margin:10px 0 10px 0;
-			padding: 35px 0 25px;
-			//height: 300px;
-			.ac_article_cont{
-				border: 1.5px solid black;
-				width: 98%;
-				display: block;
-				margin: 0 auto;
-				background: white;
-				.row{
-					.at_pic_cont{
-						//border: 1px solid black;
-						margin: 5px;
-						.at_pic{
-							//border: 1px solid black;
-							margin: 0;
-							padding: 0;
-							.article_pic{
-								padding: 0;
-								width: 100%;
+							//border: 2px solid black;
+							width: 10%;
+							float: right;
+							margin: 8px 10px;
+							img{
+								height: 30px;
+								width: 30px;
 							}
 						}
-					}
-				}
-				.photo_info_container{
-					.author_container{
-						//border:1px solid black;
-						width: 125px;
-						.author_icon{
-							background: @icon_back;
-							width:25px;
-							height: 25px;
-							border-radius: 9999px;
-							margin: 10px -8px;
-						} 
 					}
 				}
 			}
@@ -144,66 +99,8 @@ body{
 	background: #00000F;
 }
 
-@media screen and (max-width: 500px){
-	.container{
-		.row{
-			.photo_cont{
-				.ac_photo_cont{
-					height: 225px;
-					.photo{
-						height: 180px;
-					}
-					.photo_info_container{
-						.author_container{
-							.author_icon{
-								margin: 0 10px 0 10px;
-							}
-						}
-					}
-				}
-			}
-			.article_cont{
-				padding: 0;
-			}
-		}
-	}
-}
 
-@media screen and (max-width: 595px){
-	.container{
-		.row{
-			.photo_cont{
-				.photo_info_container{
-					.author_container{
-						.capt{
-							visibility: hidden;
-						}
-					}
-				}
-			}
-		}
-	}
-}
 
-@media screen and (max-width: 975px){
-	.container{
-		.row{
-			.article_cont{
-				padding: 0;
-			}
-		}
-	}
-}
 
-@media screen and (min-width 1552px){
-	.container{
-		.row{
-			.article_cont{
-				border: 2px solid black;
-				background: blue;
-			}
-		}
-	}
-}
 
 

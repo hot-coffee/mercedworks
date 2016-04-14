@@ -1,13 +1,11 @@
-//div(class='banner')
+div(class='banner')
     div(id='banner_logo_container')
         img(src='images/mwlogo.png' id = "mwlogo")
         div(id='banner_icon_container')
-            div(class='icon')
-                &nbsp;
-            div(class='icon')
-                &nbsp;
-            div(class='icon')
-                &nbsp;
+            img(src='images/icons/facebook.png' class = 'soc_icon')
+            img(src='images/icons/instagram.png' class = 'soc_icon')
+            img(src='images/icons/twitter.png' class = 'soc_icon')
+            
 
 div(class="container")
     div(class="row")
@@ -15,15 +13,35 @@ div(class="container")
 
 
         div(class='outer_cont')
-            div(class='col-md-3 col-sm-6 col-xs-6 photo_cont' ng-repeat = 'item in instagramProfiles | limitTo: 6')
+
+           div(class='col-md-3 col-sm-6 col-xs-12 photo_cont' ng-repeat = 'item in mercedworksProfiles | limitTo: 2 | limitTo: -1')
                 div(class='ac_photo_cont')
-                    img(ng-src = '{{item.pic}}' class = 'photo')
+                    img(ng-src = '{{item.userPic}}' class = 'photo')
                     div(class='photo_info_container')
                         div(class='author_container')
-                            img(ng-src='{{item.userPic}}' class = 'author_icon')
-                            a(href='{{item.link}}')
-                                p @{{item.userName}}
+                            img(ng-src='images/icons/mworks_circ.png' class = 'author_icon')
+                            p {{item.firstName + ' ' + item.lastName}} 
                             div(class='type_icon')
+                                img(src='images/icons/a_icon.png')
+
+
+            div(class='col-md-3 col-sm-6 col-xs-12 photo_cont' ng-repeat = 'item in instagramProfiles | limitTo: 13 | limitTo: -2')
+                div(class='flipper' ng-transclude ng-class = {flipped:flipped} horizontal)
+                    div(class='front_tile')
+                        div(class='ac_photo_cont')
+                            img(ng-src = '{{item.pic}}' class = 'photo')
+                            div(class='photo_info_container')
+                                div(class='author_container')
+                                    img(ng-src='{{item.userPic}}' class = 'author_icon')
+                                    a(href='{{item.link}}')
+                                        p @{{item.userName}}
+                                    div(class='type_icon')
+                                        img(src='images/icons/i_icon.png')
+                    back(class='back_tile')
+
+    
+
+
                                 
 
 
