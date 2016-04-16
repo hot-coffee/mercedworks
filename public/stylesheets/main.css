@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: black;
+}
 .banner {
   background: url('../images/mwbanner.jpg');
   background-attachment: fixed;
@@ -31,7 +34,7 @@
   padding: 0;
 }
 .container .row .photo_cont .ac_photo_cont {
-  border: 1.5px solid black;
+  border: 2px solid #D8DAE3;
   width: 95%;
   display: block;
   margin: 0 auto;

@@ -9,32 +9,43 @@ angular.module('MercedWorks').controller(
         'profileFactory',
         'saveEmailFactory',
         function($scope, $document, $location, $anchorScroll, profileFactory, saveEmailFactory) {
+            // public variables
+            $scope.profiles = [];
 
-            var mercedworksProfiles = [];
-            var instagramProfiles = [];
-            $scope.allProfiles = [];
+
+            // public methods
+            $scope.init = function() {
+                profileFactory.getProfiles(function(error) {
+                    if (error) {
+                        // TODO UI to handle error
+                        console.log('error fetching pics in main controller', error);
+                        return;
+                    }
+
+                    $scope.profiles = profileFactory.profiles;
+                });
+            };
 
             $scope.scrollToProfiles = function() {
                 $document.scrollToElementAnimated(picContainerElm, offset, duration);
             };
 
-            profileFactory.getProfiles(function(error) {
-                if (error) {
-                    // TODO UI to handle error
-                    console.log('error fetching pics in main controller', error);
-                    return;
-                }
+            $scope.getName = function(profile) {
+                return profileFactory.nameForProfile(profile);
+            };
 
-                $scope.profiles = profileFactory.profiles;
+            $scope.getProfileLink = function(profile) {
+                return profileFactory.linkForProfile(profile);
+            };
 
+            $scope.mainPhotoClicked = function(profile) {
                 debugger;
-                
-                $scope.mercedworksProfiles = $scope.profiles.mercedWorks;
-                $scope.instagramProfiles = $scope.profiles.socialMedia;
+                console.log(profile);
+            };
 
-                $scope.allProfiles = mercedworksProfiles.concat(instagramProfiles);
-
-            });
+            $scope.isMercedWorksProfile = function(profile) {
+                return profile.type === 'mercedworks';
+            }
         }
     ]
 );

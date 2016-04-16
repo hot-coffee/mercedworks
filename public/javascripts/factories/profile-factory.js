@@ -29,7 +29,7 @@ angular.module('MercedWorks').factory(
                         return null;
                     }
 
-                    for (var i=0; i < this.profiles.length; i++) {
+                    for (var i = 0; i < this.profiles.length; i++) {
                         var profile = this.profiles[i];
                         if (profileId === profile._id) {
                             console.log('found profile', profileId);
@@ -38,6 +38,22 @@ angular.module('MercedWorks').factory(
                     }
 
                     return null;
+                },
+
+                nameForProfile: function(profile) {
+                    if (profile.type === 'mercedworks') {
+                        return profile.firstName + ' ' + profile.lastName;
+                    }
+
+                    return '@' + profile.userName;
+                },
+
+                linkForProfile: function(profile) {
+                    if (profile.type === 'mercedworks') {
+                        return '#';
+                    }
+
+                    return profile.link;
                 }
             };
         }
