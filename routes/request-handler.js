@@ -213,26 +213,25 @@ function RequestHandler() {
             var socialMediaProfiles = [];
             _.each(profiles, function(profile) {
                 const picUrl = config.client.s3BaseUrl + profile.picFolder;
-                var pics = [];
+                var userPic;
                 for (var i = 0; i < profile.interviews.length; i++) {
-                    pics.push(picUrl + '/' + i.toString() + '.jpeg');
+                    const pic = picUrl + '/' + i.toString() + '.jpeg';
+                    if (!userPic) {
+                        userPic = pic;
+                    }
+                    profile.type = 'mercedworks';
+                    profile.pic = pic;
+                    profile.interview = profile.interviews[i];
+                    profile.userPic = userPic;
+                    mercedWorksProfiles.push(profileCreator(profile));
                 }
-
-                profile.pics = pics;
-                profile.type = 'mercedworks';
-                profile.userPic = pics[0];
-                mercedWorksProfiles.push(profileCreator(profile));
             });
 
             _.each(hashTagProfiles, function(profile) {
                 socialMediaProfiles.push(profileCreator(profile));
             });
 
-            var payload = {
-                mercedWorks: mercedWorksProfiles,
-                socialMedia: socialMediaProfiles
-            };
-
+            const payload = mercedWorksProfiles.concat(socialMediaProfiles).reverse();
             jsonResponse(res, null, payload);
         });
     };

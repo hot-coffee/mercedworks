@@ -10,8 +10,6 @@ var debug = require('debug')('mercedworks:server');
 var RequestHandler = require('./routes/request-handler');
 var config = require('./utils/config');
 
-
-
 function App() {
     this.run = function () {
         if (process.argv.length > 2 && process.argv[2] === 'fetchmedia') {
