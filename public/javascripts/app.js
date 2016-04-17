@@ -3,13 +3,16 @@
 require('angular');
 require('angular-route');
 require('angular-scroll');
+require('angular-flippy');
+
 var mainController = require('./controllers/main-controller');
 var profileController = require('./controllers/profile-controller');
 var instagramSignInController = require('./controllers/instagram-signin-controller');
 
 var app = angular.module('MercedWorks', [
     'ngRoute',
-    'duScroll'
+    'duScroll',
+    'angular-flippy'
 ]);
 
 app.config(

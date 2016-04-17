@@ -1,15 +1,26 @@
-div(class="container", ng-controller='mainController', ng-init='init()')
+div(class="container", ng-init='init()')
     div(class="row")
         div(class='outer_cont')
             div(class='col-md-3 col-sm-6 col-xs-12 photo_cont', ng-repeat='profile in profiles')
-                div(class='ac_photo_cont')
-                    img(ng-src='{{profile.pic}}', class='photo', ng-click='mainPhotoClicked(profile)')
-                    div(class='photo_info_container')
-                        div(class='author_container')
-                            img(ng-src='{{profile.userPic}}', class='author_icon')
-                            p(ng-if='isMercedWorksProfile(profile)') {{getName(profile)}}
-                            a(ng-if='!isMercedWorksProfile(profile)', href='{{getProfileLink(profile)}}')
-                                p {{getName(profile)}}
-                            div(class='type_icon')
-                                img(src='images/icons/a_icon.png')
-                                
+                        //div(class='ac_photo_cont')
+                        flippy(flip="['click']", flip-back="['click']", duration="1000", timing-function="ease-in-out")
+                            flippy-front
+                                img(ng-src='{{profile.pic}}', class='photo')
+                                div(class='photo_info_container')
+                                    div(class='author_container')
+                                        img(ng-src='{{profile.userPic}}', class='author_icon')
+                                        p(ng-if='isMercedWorksProfile(profile)') {{getName(profile)}}
+                                        a(ng-if='!isMercedWorksProfile(profile)', href='{{getProfileLink(profile)}}')
+                                            p {{getName(profile)}}
+                                        div(class='type_icon')
+                                            img(src='images/icons/a_icon.png')
+                            flippy-back
+                                img(ng-src='{{profile.pic}}', class='photo')
+                                div(class='photo_info_container')
+                                    div(class='author_container')
+                                        img(ng-src='{{profile.userPic}}', class='author_icon')
+                                        p(ng-if='isMercedWorksProfile(profile)') {{getName(profile)}}
+                                        a(ng-if='!isMercedWorksProfile(profile)', href='{{getProfileLink(profile)}}')
+                                            p {{getName(profile)}}
+                                        div(class='type_icon')
+                                            img(src='images/icons/a_icon.png')

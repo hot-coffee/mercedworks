@@ -11,10 +11,6 @@ html
         each styleSheet in styleSheets
             link(rel='stylesheet', href=styleSheet)
 
-        // scripts
-        each libScript in libScripts
-            script(type='application/javascript', src=libScript)
-
     body(ng-app=appName)
         div(ng-view)
             block content
