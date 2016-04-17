@@ -1,4 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";angular.module("angular-flippy",[]).directive("flippy",function(){return{restrict:"E",scope:{flip:"=",flipBack:"=",duration:"@",timingFunction:"@"},link:function(n,i,t){function a(){var n=arguments.length<=0||void 0===arguments[0]?!1:arguments[0];(!n&&!o.flipped||n&&o.flipped)&&setTimeout(function(){i.toggleClass("flipped"),o.flipped=!o.flipped},0)}function e(){a()}function u(){a(!0)}var l="custom:",o={flipped:!1},r={duration:400,timingFunction:"ease-in-out"};angular.forEach(["duration","timingFunction"],function(i){r[i]=n.item?n.item:r[i]}),angular.forEach({flip:e,flipBack:u},function(t,a){angular.forEach(n[a],function(a){-1===a.indexOf(l)?angular.element(i)[0].addEventListener(a,t):n.$on(a.substr(l.length),t)})}),angular.forEach(["flippy-front","flippy-back"],function(n){var t=i.find(n);1==t.length&&angular.forEach(["","-ms-","-webkit-"],function(n){angular.element(t[0]).css(n+"transition","all "+r.duration/1e3+"s "+r.timingFunction)})})}}});
+
+
+},{}],2:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.3
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -1022,11 +1026,11 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 })(window, window.angular);
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 require('./angular-route');
 module.exports = 'ngRoute';
 
-},{"./angular-route":1}],3:[function(require,module,exports){
+},{"./angular-route":2}],4:[function(require,module,exports){
 /**
   * x is a value between 0 and 1, indicating where in the animation you are.
   */
@@ -1655,13 +1659,13 @@ angular.module('duScroll.scrollspy', ['duScroll.spyAPI'])
   };
 }]);
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 require('angular');
 require('./angular-scroll');
 
 module.exports = 'duScroll';
 
-},{"./angular-scroll":3,"angular":6}],5:[function(require,module,exports){
+},{"./angular-scroll":4,"angular":7}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.3
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -32376,11 +32380,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":5}],7:[function(require,module,exports){
+},{"./angular":6}],8:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -33930,19 +33934,22 @@ module.exports = angular;
   }
 }.call(this));
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 require('angular');
 require('angular-route');
 require('angular-scroll');
+require('angular-flippy');
+
 var mainController = require('./controllers/main-controller');
 var profileController = require('./controllers/profile-controller');
 var instagramSignInController = require('./controllers/instagram-signin-controller');
 
 var app = angular.module('MercedWorks', [
     'ngRoute',
-    'duScroll'
+    'duScroll',
+    'angular-flippy'
 ]);
 
 app.config(
@@ -33990,14 +33997,14 @@ app.controller('instagramSignInController', [
 app.factory('instagramFactory', ['$http', require('./factories/instagram-factory')]);
 app.factory('profileFactory', ['$http', require('./factories/profile-factory')]);
 
-},{"./controllers/instagram-signin-controller":9,"./controllers/main-controller":10,"./controllers/profile-controller":11,"./factories/instagram-factory":12,"./factories/profile-factory":13,"angular":6,"angular-route":2,"angular-scroll":4}],9:[function(require,module,exports){
+},{"./controllers/instagram-signin-controller":10,"./controllers/main-controller":11,"./controllers/profile-controller":12,"./factories/instagram-factory":13,"./factories/profile-factory":14,"angular":7,"angular-flippy":1,"angular-route":3,"angular-scroll":5}],10:[function(require,module,exports){
 'use strict';
 
 module.exports = function($scope, instagramFactory) {
     $scope.buttonPressed = instagramFactory.buttonPressed;
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 
@@ -34040,7 +34047,7 @@ module.exports = function($scope, $document, $location, $anchorScroll, profileFa
     }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 const _ = require('underscore');
@@ -34121,7 +34128,7 @@ module.exports = function($scope, $routeParams, profileFactory) {
     });
 };
 
-},{"underscore":7}],12:[function(require,module,exports){
+},{"underscore":8}],13:[function(require,module,exports){
 module.exports = function($http) {
     var clientId = '4265370676f743eabb781e15f2228ed5';
     var redirectUri;
@@ -34147,7 +34154,7 @@ module.exports = function($http) {
     };
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 module.exports = function($http){
@@ -34206,4 +34213,4 @@ module.exports = function($http){
         }
     };
 };
-},{}]},{},[8]);
+},{}]},{},[9]);

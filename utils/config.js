@@ -81,21 +81,8 @@ module.exports = {
         scripts: {
             angular: [
                 'javascripts/bundle.js'
-                //'javascripts/controllers/main-controller.js',
-                //'javascripts/controllers/profile-controller.js',
-                //'javascripts/controllers/instagram-signin-controller.js',
-                //'javascripts/controllers/instagram-token-controller.js',
-                //'javascripts/factories/profile-factory.js',
-                //'javascripts/factories/instagram-factory.js',
-                //'javascripts/factories/save-email-factory.js'
             ],
-            lib: [
-                //'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js',
-                //'https://code.angularjs.org/1.4.8/angular-route.min.js',
-                //'https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js',
-                //'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js',
-                //'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
-            ],
+            lib: [],
             metaHeaders: [
                 {
                     name: 'description',
@@ -163,7 +150,8 @@ module.exports = {
         styleSheets: [
             'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
             'stylesheets/main.css',
-            'stylesheets/animate.css'
+            'stylesheets/animate.css',
+            'stylesheets/angular-flippy.css'
         ],
 
         tagCreator: function(tagType, tagObject) {
