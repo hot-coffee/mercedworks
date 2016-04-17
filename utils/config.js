@@ -80,21 +80,21 @@ module.exports = {
         s3BaseUrl: 'https://m-works-profile-images.s3.amazonaws.com/',
         scripts: {
             angular: [
-                'javascripts/app.js',
-                'javascripts/controllers/main-controller.js',
-                'javascripts/controllers/profile-controller.js',
-                'javascripts/controllers/instagram-signin-controller.js',
-                'javascripts/controllers/instagram-token-controller.js',
-                'javascripts/factories/profile-factory.js',
-                'javascripts/factories/instagram-factory.js',
-                'javascripts/factories/save-email-factory.js'
+                'javascripts/bundle.js'
+                //'javascripts/controllers/main-controller.js',
+                //'javascripts/controllers/profile-controller.js',
+                //'javascripts/controllers/instagram-signin-controller.js',
+                //'javascripts/controllers/instagram-token-controller.js',
+                //'javascripts/factories/profile-factory.js',
+                //'javascripts/factories/instagram-factory.js',
+                //'javascripts/factories/save-email-factory.js'
             ],
             lib: [
-                'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js',
-                'https://code.angularjs.org/1.4.8/angular-route.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js',
-                'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
+                //'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js',
+                //'https://code.angularjs.org/1.4.8/angular-route.min.js',
+                //'https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js',
+                //'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js',
+                //'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
             ],
             metaHeaders: [
                 {

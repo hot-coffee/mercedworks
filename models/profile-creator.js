@@ -12,7 +12,7 @@ module.exports = function(profileData) {
     const pic = _.has(profileData, 'pic') ? profileData.pic : null;
     const userPic = _.has(profileData, 'userPic') ? profileData.userPic : null;
     const caption = _.has(profileData, 'caption') ? profileData.caption : null;
-    const interviews = _.has(profileData, 'interviews') ? profileData.interviews : null;
+    const interview = _.has(profileData, 'interview') ? profileData.interview : null;
     const business = _.has(profileData, 'business') ? profileData.business : null;
     const date = _.has(profileData, 'date') ? profileData.date : null;
     const pics = _.has(profileData, 'pics') ? profileData.pics : null;
@@ -27,7 +27,7 @@ module.exports = function(profileData) {
         pic: pic,
         userPic: userPic,
         caption: caption,
-        interviews: interviews,
+        interview: interview,
         business: business,
         date: date,
         pics: pics,

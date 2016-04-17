@@ -1,45 +1,58 @@
-angular.module('MercedWorks').factory(
-    'profileFactory', [
-        '$http',
-        function($http){
-            return {
-                profiles:null,
+'use strict';
 
-                getProfiles: function(callback) {
-                    if (this.profiles) {
-                        console.log('profiles already fetched');
-                        callback(null);
-                        return;
-                    }
+module.exports = function($http){
+    return {
+        profiles:null,
 
-                    $http.get('api/profiles')
-                        .success(function(data) {
-                            console.log('profiles fetched');
-                            this.profiles = data.payload;
-                            callback(null);
-                        }.bind(this))
-                        .error(function(error) {
-                            console.log('Error retrieving profile info', 'error:', error);
-                            callback(error);
-                        });
-                },
+        getProfiles: function(callback) {
+            if (this.profiles) {
+                console.log('profiles already fetched');
+                callback(null);
+                return;
+            }
 
-                profileForId: function (profileId) {
-                    if (!this.profiles) {
-                        return null;
-                    }
+            $http.get('api/profiles')
+                .success(function(data) {
+                    console.log('profiles fetched');
+                    this.profiles = data.payload;
+                    callback(null);
+                }.bind(this))
+                .error(function(error) {
+                    console.log('Error retrieving profile info', 'error:', error);
+                    callback(error);
+                });
+        },
 
-                    for (var i=0; i < this.profiles.length; i++) {
-                        var profile = this.profiles[i];
-                        if (profileId === profile._id) {
-                            console.log('found profile', profileId);
-                            return profile;
-                        }
-                    }
+        profileForId: function (profileId) {
+            if (!this.profiles) {
+                return null;
+            }
 
-                    return null;
+            for (var i = 0; i < this.profiles.length; i++) {
+                var profile = this.profiles[i];
+                if (profileId === profile._id) {
+                    console.log('found profile', profileId);
+                    return profile;
                 }
-            };
+            }
+
+            return null;
+        },
+
+        nameForProfile: function(profile) {
+            if (profile.type === 'mercedworks') {
+                return profile.firstName + ' ' + profile.lastName;
+            }
+
+            return '@' + profile.userName;
+        },
+
+        linkForProfile: function(profile) {
+            if (profile.type === 'mercedworks') {
+                return '#';
+            }
+
+            return profile.link;
         }
-    ]
-);
+    };
+};
