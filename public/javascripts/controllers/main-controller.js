@@ -14,6 +14,7 @@ module.exports = function($scope, $document, $location, $anchorScroll, profileFa
                 return;
             }
 
+            debugger;
             $scope.profiles = profileFactory.profiles;
         });
     };
