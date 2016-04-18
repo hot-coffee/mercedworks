@@ -1,26 +1,13 @@
-div(class="container", ng-init='init()')
-    div(class="row")
-        div(class='outer_cont')
-            div(class='col-md-3 col-sm-6 col-xs-12 photo_cont', ng-repeat='profile in profiles')
-                        //div(class='ac_photo_cont')
-                        flippy(flip="['click']", flip-back="['click']", duration="1000", timing-function="ease-in-out")
-                            flippy-front
-                                img(ng-src='{{profile.pic}}', class='photo')
-                                div(class='photo_info_container')
-                                    div(class='author_container')
-                                        img(ng-src='{{profile.userPic}}', class='author_icon')
-                                        p(ng-if='isMercedWorksProfile(profile)') {{getName(profile)}}
-                                        a(ng-if='!isMercedWorksProfile(profile)', href='{{getProfileLink(profile)}}')
-                                            p {{getName(profile)}}
-                                        div(class='type_icon')
-                                            img(src='images/icons/a_icon.png')
-                            flippy-back
-                                img(ng-src='{{profile.pic}}', class='photo')
-                                div(class='photo_info_container')
-                                    div(class='author_container')
-                                        img(ng-src='{{profile.userPic}}', class='author_icon')
-                                        p(ng-if='isMercedWorksProfile(profile)') {{getName(profile)}}
-                                        a(ng-if='!isMercedWorksProfile(profile)', href='{{getProfileLink(profile)}}')
-                                            p {{getName(profile)}}
-                                        div(class='type_icon')
-                                            img(src='images/icons/a_icon.png')
+div(ng-init='init()')
+
+    div(class = 'container')
+        div(class = 'row')
+            
+            div(ng-repeat='profile in profiles | limitTo: 15')
+                flippy(class = "col-md-4 col-sm-6 col-xs-12" flip="['click']", flip-back="['click']", duration="1000", timing-function="ease-in-out")
+                    flippy-front
+                        img(ng-src='{{profile.pic}}', class='photo')
+                    flippy-back
+                        <h1>Hey</h1>
+                        <p>A Battle for your soullll</p>
+
