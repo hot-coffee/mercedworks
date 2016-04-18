@@ -21,8 +21,8 @@ html,body{
 	.row{
 		//border: 2px solid white;
 		flippy{
-			cursor: pointer;
 			//border: 2px solid white;
+			position: relative;
 			height: 455px;
 			display: block;
 			margin: 5px 0;
@@ -39,10 +39,40 @@ html,body{
 					display: block;
 					margin: 0 auto;
 				}
-				.info{
-					border: 2px solid black;
-					height: 55px;
-					background: blue;
+				.info_container{
+					//border: 2px solid black;
+					.author_container{
+						//border: 2px solid orange;
+						display: inline-block;
+						width: 200px;
+						p{
+							display: inline;
+						}
+						.author_icon{
+							display: inline;
+							height: 40px;
+							width: 40px;
+							border-radius: 9999px;
+							margin: 10px 2px 10px 10px;
+						}
+					}
+				}
+				.cap_container{
+					//border: 2px solid black;
+					p{
+						font-size: 20px;
+						padding: 15px;
+						width: 80%;
+						display: block;
+						margin: 0 auto;
+					}
+				}
+				.cap_info_container{
+					//border: 2px solid black;
+					position: absolute;
+					bottom: 0;
+					height: 50px;
+					width: 100%;
 				}
 			}
 		}
@@ -55,7 +85,7 @@ html,body{
 			flippy{
 				height: 500px;
 				flippy-front,flippy-back{
-					height: 475px;
+					height: 485px;
 					.photo{
 						height: 415px;
 					}
