@@ -5,75 +5,45 @@
 body {
   background-color: black;
 }
-.banner {
-  background: url('../images/mwbanner.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 235px;
-}
-.banner #banner_logo_container {
-  width: 250px;
-  height: inherit;
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-.banner #banner_logo_container #mwlogo {
-  height: 150px;
-  width: 140px;
-  margin-top: 15px;
-}
-.banner #banner_icon_container .soc_icon {
-  margin: 10px 5px;
+html,
+body {
+  height: 100%;
+  position: relative;
 }
 .container {
   width: 100%;
 }
-.container .row .photo_cont {
-  margin: 10px 0 10px 0;
-  padding: 0;
+.container .row flippy {
+  cursor: pointer;
+  height: 455px;
+  display: block;
+  margin: 20px 0;
 }
-.container .row .photo_cont .ac_photo_cont {
-  border: 2px solid #D8DAE3;
-  width: 95%;
+.container .row flippy flippy-front,
+.container .row flippy flippy-back {
+  background: white;
+  padding: 8px 0 15px 0;
+  border: 2px solid white;
+  height: 435px;
+  width: 93%;
+}
+.container .row flippy flippy-front .photo,
+.container .row flippy flippy-back .photo {
+  width: 98%;
+  height: 375px;
   display: block;
   margin: 0 auto;
-  overflow: hidden;
-  background: white;
 }
-.container .row .photo_cont .ac_photo_cont .photo {
-  background: #666666;
-  width: 95%;
-  display: block;
-  margin: 5px auto 5px auto;
-}
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container {
-  overflow: hidden;
-  width: 100%;
-}
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .author_icon {
-  width: 35px;
-  height: 35px;
-  border-radius: 9999px;
-  margin: 8px 2px 8px 8px;
-  display: inline;
-}
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container p {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-}
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .type_icon {
-  width: 10%;
-  float: right;
-  margin: 8px 10px;
-}
-.container .row .photo_cont .ac_photo_cont .photo_info_container .author_container .type_icon img {
-  height: 30px;
-  width: 30px;
-}
-.footer {
-  height: 50px;
-  background: #00000F;
+@media screen and (max-width: 767px) {
+  .container .row flippy {
+    height: 500px;
+  }
+  .container .row flippy flippy-front,
+  .container .row flippy flippy-back {
+    height: 475px;
+  }
+  .container .row flippy flippy-front .photo,
+  .container .row flippy flippy-back .photo {
+    height: 415px;
+  }
 }
