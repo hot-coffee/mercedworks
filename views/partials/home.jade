@@ -7,7 +7,16 @@ div(ng-init='init()')
                 flippy(class = "col-md-4 col-sm-6 col-xs-12" flip="['click']", flip-back="['click']", duration="1000", timing-function="ease-in-out")
                     flippy-front
                         img(ng-src='{{profile.pic}}', class='photo')
+                        div(class='info_container')
+                            div(class='author_container')
+                                img(ng-src='{{profile.userPic}}' class = 'author_icon')
+                                a(href='{{profile.link}}')
+                                    p @{{profile.userName}}
+                            div(class='type_container')
                     flippy-back
-                        <h1>Hey</h1>
-                        <p>A Battle for your soullll</p>
+                        div(class='cap_container')
+                            p {{profile.caption | limitTo: 500}}
+                        div(class='cap_info_container')
+                            p {{profile.date}}
+                        
 
