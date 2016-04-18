@@ -17,15 +17,15 @@ body {
   cursor: pointer;
   height: 455px;
   display: block;
-  margin: 20px 0;
+  margin: 5px 0;
 }
 .container .row flippy flippy-front,
 .container .row flippy flippy-back {
   background: white;
   padding: 8px 0 15px 0;
   border: 2px solid white;
-  height: 435px;
-  width: 93%;
+  height: 445px;
+  width: 95%;
 }
 .container .row flippy flippy-front .photo,
 .container .row flippy flippy-back .photo {
@@ -33,6 +33,12 @@ body {
   height: 375px;
   display: block;
   margin: 0 auto;
+}
+.container .row flippy flippy-front .info,
+.container .row flippy flippy-back .info {
+  border: 2px solid black;
+  height: 55px;
+  background: blue;
 }
 @media screen and (max-width: 767px) {
   .container .row flippy {

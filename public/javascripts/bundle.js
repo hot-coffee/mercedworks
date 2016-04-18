@@ -34020,7 +34020,6 @@ module.exports = function($scope, $document, $location, $anchorScroll, profileFa
                 console.log('error fetching pics in main controller', error);
                 return;
             }
-
             debugger;
             $scope.profiles = profileFactory.profiles;
         });
