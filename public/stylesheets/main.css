@@ -14,7 +14,7 @@ body {
   width: 100%;
 }
 .container .row flippy {
-  cursor: pointer;
+  position: relative;
   height: 455px;
   display: block;
   margin: 5px 0;
@@ -34,11 +34,37 @@ body {
   display: block;
   margin: 0 auto;
 }
-.container .row flippy flippy-front .info,
-.container .row flippy flippy-back .info {
-  border: 2px solid black;
-  height: 55px;
-  background: blue;
+.container .row flippy flippy-front .info_container .author_container,
+.container .row flippy flippy-back .info_container .author_container {
+  display: inline-block;
+  width: 200px;
+}
+.container .row flippy flippy-front .info_container .author_container p,
+.container .row flippy flippy-back .info_container .author_container p {
+  display: inline;
+}
+.container .row flippy flippy-front .info_container .author_container .author_icon,
+.container .row flippy flippy-back .info_container .author_container .author_icon {
+  display: inline;
+  height: 40px;
+  width: 40px;
+  border-radius: 9999px;
+  margin: 10px 2px 10px 10px;
+}
+.container .row flippy flippy-front .cap_container p,
+.container .row flippy flippy-back .cap_container p {
+  font-size: 20px;
+  padding: 15px;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+.container .row flippy flippy-front .cap_info_container,
+.container .row flippy flippy-back .cap_info_container {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
 }
 @media screen and (max-width: 767px) {
   .container .row flippy {
@@ -46,7 +72,7 @@ body {
   }
   .container .row flippy flippy-front,
   .container .row flippy flippy-back {
-    height: 475px;
+    height: 485px;
   }
   .container .row flippy flippy-front .photo,
   .container .row flippy flippy-back .photo {
