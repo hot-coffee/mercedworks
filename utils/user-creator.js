@@ -18,7 +18,7 @@ module.exports = function () {
             userFromFile.lastName.toLowerCase()
         );
 
-        userFromFile.dateCreated = Date.parse(userFromFile.dateCreated);;
+        userFromFile.dateCreated = Date.parse(userFromFile.dateCreated);
         users.push(userFromFile);
     });
 
