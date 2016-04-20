@@ -53,7 +53,7 @@ body {
 }
 .container .row flippy flippy-front .cap_container p,
 .container .row flippy flippy-back .cap_container p {
-  font-size: 20px;
+  font-size: 18px;
   padding: 15px;
   width: 80%;
   display: block;
@@ -66,6 +66,11 @@ body {
   height: 50px;
   width: 100%;
 }
+.container .row flippy flippy-front .cap_info_container p,
+.container .row flippy flippy-back .cap_info_container p {
+  margin-left: 15px;
+  font-size: 16px;
+}
 @media screen and (max-width: 767px) {
   .container .row flippy {
     height: 500px;
@@ -77,5 +82,22 @@ body {
   .container .row flippy flippy-front .photo,
   .container .row flippy flippy-back .photo {
     height: 415px;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .container .row flippy {
+    height: 595px;
+  }
+  .container .row flippy flippy-front,
+  .container .row flippy flippy-back {
+    height: 585px;
+  }
+  .container .row flippy flippy-front .photo,
+  .container .row flippy flippy-back .photo {
+    height: 515px;
+  }
+  .container .row flippy flippy-front .cap_container p,
+  .container .row flippy flippy-back .cap_container p {
+    font-size: 25px;
   }
 }

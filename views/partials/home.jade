@@ -21,6 +21,6 @@ div(ng-init='init()')
                         div(class='cap_container')
                             p {{profile.caption | limitTo: 500}}
                         div(class='cap_info_container')
-                            p {{profile.date}}
+                            p {{profile.dateCreated | date }}
                         
 

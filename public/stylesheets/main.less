@@ -60,7 +60,7 @@ html,body{
 				.cap_container{
 					//border: 2px solid black;
 					p{
-						font-size: 20px;
+						font-size: 18px;
 						padding: 15px;
 						width: 80%;
 						display: block;
@@ -73,6 +73,10 @@ html,body{
 					bottom: 0;
 					height: 50px;
 					width: 100%;
+					p{
+						margin-left: 15px;
+						font-size: 16px;
+					}
 				}
 			}
 		}
@@ -88,6 +92,27 @@ html,body{
 					height: 485px;
 					.photo{
 						height: 415px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1366px){
+	.container{
+		.row{
+			flippy{
+				height: 595px;
+				flippy-front,flippy-back{
+					height: 585px;
+					.photo{
+						height: 515px;
+					}
+					.cap_container{
+						p{
+							font-size: 25px;
+						}
 					}
 				}
 			}
