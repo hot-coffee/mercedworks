@@ -88,9 +88,7 @@ function RequestHandler() {
                 const now = new Date().getTime();
                 for (var i=0; i < response.payload.length; i++) {
                     const profile = response.payload[i];
-                    console.log('profile date:', Date.parse(profile.date));
-                    console.log('now:', now);
-                    if (Date.parse(profile.date) > now) {
+                    if (profile.dateCreated > now) {
                         continue;
                     }
 
@@ -105,9 +103,7 @@ function RequestHandler() {
                 }
 
                 profiles.sort(function(profile1, profile2) {
-                    const date1 = Date.parse(profile1.date);
-                    const date2 = Date.parse(profile2.date);
-                    return date1 < date2;
+                    return profile1.dateCreated < profile2.dateCreated;
                 });
 
                 jsonResponse(res, null, profiles);
