@@ -59,9 +59,26 @@ html,body{
 				}
 				.cap_container{
 					//border: 2px solid black;
+					.cap_detail_container{
+						//border: 2px solid black;
+						margin: 0;
+						padding: 5px;
+						.author_icon{
+							height: 50px;
+							width: 50px;
+							display: inline;
+							border-radius: 99999px;
+						}
+						p{
+							//border: 2px solid black;
+							width: 50%;
+							display: inline;
+							margin-left: -5px;
+						}
+					}
 					p{
-						font-size: 18px;
-						padding: 15px;
+						font-size: 17px;
+						padding: 10px;
 						width: 80%;
 						display: block;
 						margin: 0 auto;
@@ -71,11 +88,27 @@ html,body{
 					//border: 2px solid black;
 					position: absolute;
 					bottom: 0;
-					height: 50px;
 					width: 100%;
+					padding: 10px;
 					p{
-						margin-left: 15px;
+						//border: 2px solid black;
 						font-size: 16px;
+						display: inline;
+					}
+					.like_container{
+						float: right;
+						margin-right: 10px;
+						padding-top: -10px;
+						//border: 2px solid black;
+						p{
+							margin-right: 5px;
+							font-size: 16px;
+						}
+						.like_icon{
+							height: 25px;
+							width: 30px;
+							//border: 2px solid black;
+						}
 					}
 				}
 			}

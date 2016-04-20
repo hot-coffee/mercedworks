@@ -19,8 +19,14 @@ div(ng-init='init()')
                             div(class='type_container')
                     flippy-back
                         div(class='cap_container')
+                            div(class='cap_detail_container')
+                                img(ng-src='{{profile.userPic}}' class = 'author_icon')
+                                p {{getName(profile)}}
                             p {{profile.caption | limitTo: 500}}
                         div(class='cap_info_container')
-                            p {{profile.dateCreated | date }}
+                            p Posted: {{profile.dateCreated | date }}
+                            div(class='like_container')
+                                p {{profile.likeCount}}
+                                img(src='images/icons/like_icon.png' class = 'like_icon')
                         
 
