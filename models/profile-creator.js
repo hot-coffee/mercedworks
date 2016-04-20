@@ -18,6 +18,8 @@ module.exports = function(profileData) {
     const pics = _.has(profileData, 'pics') ? profileData.pics : null;
     const userName = _.has(profileData, 'userName') ? profileData.userName : null;
     const dateCreated = _.has(profileData, 'dateCreated') ? profileData.dateCreated : null;
+    const likeCount = _.has(profileData, 'likeCount') ? profileData.likeCount : null;
+    
     return {
         firstName: firstName,
         lastName: lastName,
@@ -32,6 +34,7 @@ module.exports = function(profileData) {
         date: date,
         pics: pics,
         userName: userName,
-        dateCreated: dateCreated
+        dateCreated: dateCreated,
+        likeCount: likeCount
     };
 };
