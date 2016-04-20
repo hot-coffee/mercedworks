@@ -27,10 +27,9 @@ function App() {
             const userCreator = require('./utils/user-creator');
             userCreator();
         } else if (process.argv.length > 2 && process.argv[2] === 'mediafetch') {
-            var instagramFetchController = require('./controllers/instagram-fetch-controller');
-            jsonFile = require('jsonfile');
-
+            const jsonFile = require('jsonfile');
             params = jsonFile.readFileSync(config.filePaths.instagramParamsPath);
+            var instagramFetchController = require('./controllers/instagram-fetch-controller');
             instagramFetchController(params.code);
         } else {
             this.startServer();
