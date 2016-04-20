@@ -21,7 +21,6 @@ var getParams = function() {
 };
 
 var parseHashData = function(incomingData) {
-    console.log(incomingData);;
     var payload = JSON.parse(incomingData);
     if (!_.has(payload, 'data')) {
         logger.log(['payload does not have data array'], __filename, true);
@@ -38,6 +37,7 @@ var parseHashData = function(incomingData) {
             userPic: datum.user.profile_picture,
             userId: datum.user.id,
             userFullName: datum.user.full_name,
+            dateCreated: datum.created_time,
             type: 'instagram'
         });
     });

@@ -17,7 +17,7 @@ module.exports = function(profileData) {
     const date = _.has(profileData, 'date') ? profileData.date : null;
     const pics = _.has(profileData, 'pics') ? profileData.pics : null;
     const userName = _.has(profileData, 'userName') ? profileData.userName : null;
-
+    const dateCreated = _.has(profileData, 'dateCreated') ? profileData.dateCreated : null;
     return {
         firstName: firstName,
         lastName: lastName,
@@ -31,6 +31,7 @@ module.exports = function(profileData) {
         business: business,
         date: date,
         pics: pics,
-        userName: userName
+        userName: userName,
+        dateCreated: dateCreated
     };
 };

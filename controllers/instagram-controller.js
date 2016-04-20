@@ -259,7 +259,7 @@ function InstagramController(code) {
                 return;
             }
 
-            logger.log(['Posted to database. Response:', data], __filename, false);
+            logger.log(['Successfully reteived recent media from db'], __filename, false);
             this.dbMedia = _.has(data, 'payload') ? data.payload : [];
             callback();
         }.bind(this));
