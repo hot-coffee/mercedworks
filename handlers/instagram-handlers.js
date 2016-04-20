@@ -38,6 +38,7 @@ var parseHashData = function(incomingData) {
             userId: datum.user.id,
             userFullName: datum.user.full_name,
             dateCreated: 1000*parseInt(datum.created_time),
+            likeCount : datum.likes.count,
             type: 'instagram'
         });
     });
