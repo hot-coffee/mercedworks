@@ -51,10 +51,28 @@ body {
   border-radius: 9999px;
   margin: 10px 2px 10px 10px;
 }
+.container .row flippy flippy-front .cap_container .cap_detail_container,
+.container .row flippy flippy-back .cap_container .cap_detail_container {
+  margin: 0;
+  padding: 5px;
+}
+.container .row flippy flippy-front .cap_container .cap_detail_container .author_icon,
+.container .row flippy flippy-back .cap_container .cap_detail_container .author_icon {
+  height: 50px;
+  width: 50px;
+  display: inline;
+  border-radius: 99999px;
+}
+.container .row flippy flippy-front .cap_container .cap_detail_container p,
+.container .row flippy flippy-back .cap_container .cap_detail_container p {
+  width: 50%;
+  display: inline;
+  margin-left: -5px;
+}
 .container .row flippy flippy-front .cap_container p,
 .container .row flippy flippy-back .cap_container p {
-  font-size: 20px;
-  padding: 15px;
+  font-size: 17px;
+  padding: 10px;
   width: 80%;
   display: block;
   margin: 0 auto;
@@ -63,8 +81,29 @@ body {
 .container .row flippy flippy-back .cap_info_container {
   position: absolute;
   bottom: 0;
-  height: 50px;
   width: 100%;
+  padding: 10px;
+}
+.container .row flippy flippy-front .cap_info_container p,
+.container .row flippy flippy-back .cap_info_container p {
+  font-size: 16px;
+  display: inline;
+}
+.container .row flippy flippy-front .cap_info_container .like_container,
+.container .row flippy flippy-back .cap_info_container .like_container {
+  float: right;
+  margin-right: 10px;
+  padding-top: -10px;
+}
+.container .row flippy flippy-front .cap_info_container .like_container p,
+.container .row flippy flippy-back .cap_info_container .like_container p {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.container .row flippy flippy-front .cap_info_container .like_container .like_icon,
+.container .row flippy flippy-back .cap_info_container .like_container .like_icon {
+  height: 25px;
+  width: 30px;
 }
 @media screen and (max-width: 767px) {
   .container .row flippy {
@@ -77,5 +116,22 @@ body {
   .container .row flippy flippy-front .photo,
   .container .row flippy flippy-back .photo {
     height: 415px;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .container .row flippy {
+    height: 595px;
+  }
+  .container .row flippy flippy-front,
+  .container .row flippy flippy-back {
+    height: 585px;
+  }
+  .container .row flippy flippy-front .photo,
+  .container .row flippy flippy-back .photo {
+    height: 515px;
+  }
+  .container .row flippy flippy-front .cap_container p,
+  .container .row flippy flippy-back .cap_container p {
+    font-size: 25px;
   }
 }
