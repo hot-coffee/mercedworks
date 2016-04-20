@@ -37,7 +37,7 @@ var parseHashData = function(incomingData) {
             userPic: datum.user.profile_picture,
             userId: datum.user.id,
             userFullName: datum.user.full_name,
-            dateCreated: datum.created_time,
+            dateCreated: parseInt(datum.created_time),
             type: 'instagram'
         });
     });

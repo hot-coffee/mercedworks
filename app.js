@@ -12,7 +12,7 @@ var config = require('./utils/config');
 
 function App() {
     this.run = function () {
-        if (process.argv.length > 2 && process.argv[2] === 'fetchmedia') {
+        if (process.argv.length > 2 && process.argv[2] === 'instamworksmedia') {
             const InstagramController = require('./controllers/instagram-controller');
             var igController = new InstagramController();
             igController.fetchRecentMedia(function (error, media) {
